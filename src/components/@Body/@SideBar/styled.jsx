@@ -2,9 +2,7 @@ import styled from "styled-components"
 
 export const MainContainer = styled.div`
     display: flex;
-    width: 10%;
-    height: 90%;
-    border: 2px solid black;
-
-
+    width: 90%;
+    height: 95%;
+    background-color: #6400A0;
 `

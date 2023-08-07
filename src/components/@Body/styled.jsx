@@ -6,7 +6,19 @@ export const MainContainer = styled.div`
     align-items: center;
     width: 100%;
     height: 90%;
-    border: 2px solid blue;
+`
 
-
+export const Left = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 10%;
+    height: 100%;
+`
+export const Rigth = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    height: 100%;
 `

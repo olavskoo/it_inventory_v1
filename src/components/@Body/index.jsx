@@ -9,8 +9,12 @@ export default function Body(){
     return(
         <>
         <Styled.MainContainer>
-           <SideBar></SideBar>
-            <ShowPanel></ShowPanel>
+            <Styled.Left>
+                <SideBar></SideBar>
+            </Styled.Left>
+            <Styled.Rigth>
+             <ShowPanel></ShowPanel>
+            </Styled.Rigth>
         </Styled.MainContainer>
         
         </>

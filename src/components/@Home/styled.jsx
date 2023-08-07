@@ -6,6 +6,5 @@ export const MainContainer = styled.div`
     flex-direction: column;
     width: 100vw;
     height: 100vh;
-
-
+    background-color: #D4D4D4;
 `
