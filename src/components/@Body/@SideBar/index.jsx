@@ -7,9 +7,16 @@ export default function SideBar(){
     return(
         <>
         <Styled.MainContainer>
-            <Styled.LinksContainer><i class="fa-solid fa-laptop"></i>Computer</Styled.LinksContainer>
-            <Styled.LinksContainer><i class="fa-solid fa-mobile-button"></i>Phones</Styled.LinksContainer>
-            <Styled.LinksContainer><i class="fa-solid fa-print"></i>Printers</Styled.LinksContainer>
+            <Styled.LinksContainer>
+                <Styled.LinksIcon><i class="fa-solid fa-laptop"></i></Styled.LinksIcon>
+                <Styled.LinksText>Computer</Styled.LinksText>
+            </Styled.LinksContainer>
+                <Styled.LinksContainer><Styled.LinksIcon><i class="fa-solid fa-mobile-screen-button"></i></Styled.LinksIcon>
+                <Styled.LinksText>Phones</Styled.LinksText>
+            </Styled.LinksContainer>
+                <Styled.LinksContainer><Styled.LinksIcon><i class="fa-solid fa-print"></i></Styled.LinksIcon>
+                <Styled.LinksText>Printers</Styled.LinksText>
+            </Styled.LinksContainer>
         </Styled.MainContainer>
         </>
     )

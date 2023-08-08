@@ -7,11 +7,27 @@ export const MainContainer = styled.div`
     height: 95%;
     background-color: #6400A0;
 `
-export const LinksContainer = styled.div`
+export const LinksContainer = styled.a`
     display: flex;
-    align-items: center;
-    justify-content: center;
     width: 100%;
-    height: 10%;
+    height: 5%;
     color: #E4E4E4;
+    &:hover{
+        cursor: pointer;
+        color: #A9A9A9;
+    }
+`
+export const LinksIcon = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    height: 100%;
+`
+export const LinksText = styled.div`
+    display: flex;
+    font-size: 90%;
+    align-items: center;
+    width: 65%;
+    height: 100%
 `
