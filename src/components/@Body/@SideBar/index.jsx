@@ -7,9 +7,9 @@ export default function SideBar(){
     return(
         <>
         <Styled.MainContainer>
-            <Styled.LinksContainer>Computer</Styled.LinksContainer>
-            <Styled.LinksContainer>Phones</Styled.LinksContainer>
-            <Styled.LinksContainer>Printers</Styled.LinksContainer>
+            <Styled.LinksContainer><i class="fa-solid fa-laptop"></i>Computer</Styled.LinksContainer>
+            <Styled.LinksContainer><i class="fa-solid fa-mobile-button"></i>Phones</Styled.LinksContainer>
+            <Styled.LinksContainer><i class="fa-solid fa-print"></i>Printers</Styled.LinksContainer>
         </Styled.MainContainer>
         </>
     )
