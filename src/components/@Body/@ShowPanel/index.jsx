@@ -5,7 +5,8 @@ export default function ShowPanel (){
     
     return(
         <>
-        <Styled.MainContainer></Styled.MainContainer>
+        <Styled.MainContainer>
+        </Styled.MainContainer>
         </>
     )
 }
