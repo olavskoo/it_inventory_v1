@@ -1,5 +1,6 @@
 import React from "react";
 import * as Styled from "./styled"
+import GeLogoWhite from "../img/GeLogoWhite.png"
 
 export default function Header (){
     return(
@@ -7,7 +8,7 @@ export default function Header (){
         <Styled.MainContainer>
             <Styled.LeftContainer>
                 <Styled.LeftContent>
-                    <a href="/"> <img src=".../img/GeLogoPurple.png" alt="GE Logo" /></a>
+                    <a href="/"> <img src={GeLogoWhite} alt="GE Logo" style={{width:"100%", height:"100%"}}/></a>
                 </Styled.LeftContent>
             </Styled.LeftContainer>
             <Styled.RightContainer>

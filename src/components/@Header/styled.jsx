@@ -4,6 +4,7 @@ export const MainContainer = styled.div`
     display: flex;
     width: 100%;
     height: 10%;
+    background: linear-gradient(#6400A0, #D4D4D4 95%);
 `
 
 export const LeftContainer = styled.div`
@@ -29,5 +30,4 @@ export const RightContent = styled.div`
     display: flex;
     width: 98%;
     height: 93%;
-    background-color: #6400A0;
 `
