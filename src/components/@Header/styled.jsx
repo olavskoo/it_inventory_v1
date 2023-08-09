@@ -24,7 +24,6 @@ export const LeftContent = styled.div`
     display: flex;
     width: 95%;
     height: 93%;
-    background-color: #6400A0;
 `
 export const RightContent = styled.div`
     display: flex;

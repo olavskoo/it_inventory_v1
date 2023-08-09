@@ -6,7 +6,9 @@ export default function Header (){
         <>
         <Styled.MainContainer>
             <Styled.LeftContainer>
-                <Styled.LeftContent></Styled.LeftContent>
+                <Styled.LeftContent>
+                    <a href="/"> <img src=".../img/GeLogoPurple.png" alt="GE Logo" /></a>
+                </Styled.LeftContent>
             </Styled.LeftContainer>
             <Styled.RightContainer>
                 <Styled.RightContent></Styled.RightContent>
