@@ -50,7 +50,7 @@ export default function ShowPanel() {
               <TableHead>
                 <TableToolbar>
                 <TableToolbarSearch onChange={onInputChange}></TableToolbarSearch>
-                <Button><i class="fa-solid fa-plus" style={{color: '#4200A0'}}></i></Button>
+                <Button style={{backgroundColor: "#6400A0"}}><i class="fa-solid fa-plus" style={{color: 'white'}}></i></Button>
                 </TableToolbar>
                 <TableRow>
                   {headers.map((header) => (

@@ -6,5 +6,5 @@ export const MainContainer = styled.div`
     width: 98%;
     height: 95%;
     border: 2px solid #6400A0;
-
 `
+
