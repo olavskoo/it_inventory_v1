@@ -10,6 +10,7 @@ import {
   TableCell,
   TableToolbar,
   TableToolbarSearch,
+  Button,
 } from "@carbon/react";
 const rows = [
   {
@@ -49,6 +50,7 @@ export default function ShowPanel() {
               <TableHead>
                 <TableToolbar>
                 <TableToolbarSearch onChange={onInputChange}></TableToolbarSearch>
+                <Button><i class="fa-solid fa-plus" style={{color: '#4200A0'}}></i></Button>
                 </TableToolbar>
                 <TableRow>
                   {headers.map((header) => (

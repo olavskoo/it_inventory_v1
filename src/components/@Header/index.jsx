@@ -13,7 +13,7 @@ export default function Header() {
               <img
                 src={GeLogoWhite}
                 alt="GE Logo"
-                style={{ width: "110%", height: "110%" }}
+                style={{ width: "150%", height: "100%" }}
               />
             </a>
           </Styled.LeftContent>
