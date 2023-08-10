@@ -13,13 +13,16 @@ export default function Header() {
               <img
                 src={GeLogoWhite}
                 alt="GE Logo"
-                style={{ width: "100%", height: "100%" }}
+                style={{ width: "110%", height: "110%" }}
               />
             </a>
           </Styled.LeftContent>
         </Styled.LeftContainer>
         <Styled.RightContainer>
-          <Styled.RightContent></Styled.RightContent>
+          <Styled.RightContent>
+            <Styled.RightContentText>User</Styled.RightContentText>
+            <Styled.RightContentIcon><i class="fa-solid fa-user" style={{fontSize: "2em"}}></i></Styled.RightContentIcon>
+          </Styled.RightContent>
         </Styled.RightContainer>
       </Styled.MainContainer>
     </>

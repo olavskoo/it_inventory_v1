@@ -5,6 +5,6 @@ export const MainContainer = styled.div`
     flex-direction: column;
     width: 98%;
     height: 95%;
-    border: 2px solid black;
+    border: 2px solid #6400A0;
 
 `

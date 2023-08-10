@@ -5,16 +5,21 @@ export const MainContainer = styled.div`
     flex-direction: column;
     width: 90%;
     height: 95%;
-    background-color: #6400A0;
 `
-export const LinksContainer = styled.a`
+export const LinksContainer = styled.div`
+    display: flex
+    flex-direction: column;
+    width: 100%;
+    height: 90%;
+`
+export const LinksContent = styled.a`
     display: flex;
     width: 100%;
     height: 5%;
-    color: #E4E4E4;
+    color: #6400A0;
     &:hover{
         cursor: pointer;
-        color: #A9A9A9;
+        color: #8D8D8D;
     }
 `
 export const LinksIcon = styled.div`
@@ -30,4 +35,12 @@ export const LinksText = styled.div`
     align-items: center;
     width: 65%;
     height: 100%
+`
+export const Version = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;  
+    width: 100%;
+    height: 10%;
+    color: #6400A0;
 `
