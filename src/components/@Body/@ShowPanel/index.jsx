@@ -11,6 +11,7 @@ import {
   TableToolbar,
   TableToolbarSearch,
   Button,
+  TableToolbarContent,
 } from "@carbon/react";
 const rows = [
   {
@@ -44,14 +45,19 @@ export default function ShowPanel() {
   return (
     <>
       <Styled.MainContainer>
+      <Styled.ToolbarContainer>
+        <TableToolbar>
+                <TableToolbarContent>
+                <TableToolbarSearch></TableToolbarSearch>
+                <Button hasIconOnly onClick style={{backgroundColor: "#6400A0"}}><i class="fa-solid fa-plus" style={{color: 'white'}}></i></Button>
+                </TableToolbarContent>
+                </TableToolbar>
+        </Styled.ToolbarContainer>
+        
         <DataTable rows={rows} headers={headers} isSortable >
-          {({ rows, headers, getTableProps, getHeaderProps, getRowProps, onInputChange}) => (
+          {({ rows, headers, getTableProps, getHeaderProps,getRowProps}) => (
             <Table {...getTableProps()}>
               <TableHead>
-                <TableToolbar>
-                <TableToolbarSearch onChange={onInputChange}></TableToolbarSearch>
-                <Button style={{backgroundColor: "#6400A0"}}><i class="fa-solid fa-plus" style={{color: 'white'}}></i></Button>
-                </TableToolbar>
                 <TableRow>
                   {headers.map((header) => (
                     <TableHeader {...getHeaderProps({ header })}>
@@ -72,6 +78,7 @@ export default function ShowPanel() {
             </Table>
           )}
         </DataTable>
+        
       </Styled.MainContainer>
     </>
   );
