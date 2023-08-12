@@ -17,6 +17,11 @@ import {
   TableToolbarMenu,
   TableToolbarAction
 } from "@carbon/react";
+import { useState } from "react";
+
+
+
+
 const rows = [
   {
     id: "a",
@@ -46,6 +51,11 @@ const headers = [
 ];
 
 export default function ShowPanel() {
+
+
+  const [Nombre, CambioNombre] = useState("Andres")
+
+
   return (
     <>
       <Styled.MainContainer>
@@ -53,13 +63,13 @@ export default function ShowPanel() {
   rows={rows}
   headers={headers}
   render={({ rows, headers, getHeaderProps, onInputChange }) => (
-    <TableContainer title="DataTable with toolbar">
+    <TableContainer title={Nombre}>
       <TableToolbar>
         {/* pass in `onInputChange` change here to make filtering work */}
         <TableToolbarSearch onChange={onInputChange} />
         <TableToolbarContent>
-          <Button small kind="primary">
-            Add new
+          <Button small kind="primary" onClick={()=> CambioNombre("Gustavo")}>
+            new user
           </Button>
         </TableToolbarContent>
       </TableToolbar>
