@@ -12,21 +12,20 @@ import {
   TableToolbarSearch,
   Button,
   TableToolbarContent,
-  Search,
   TableContainer,
-  TableToolbarMenu,
-  TableToolbarAction
 } from "@carbon/react";
-import { useState } from "react";
-
 
 
 
 const rows = [
   {
     id: "a",
-    name: "Load balancer 1",
-    status: "Disabled",
+    userName: "",
+    SSO: "Disabled",
+    Department: "",
+    Brand: "",
+    Model: "",
+    SerialNumber: ""
   },
   {
     id: "b",
@@ -41,21 +40,38 @@ const rows = [
 ];
 const headers = [
   {
-    key: "name",
-    header: "Name",
+    key: "userName",
+    header: "User Name",
   },
   {
-    key: "status",
-    header: "Status",
+    key: "SSO",
+    header: "SSO",
+  },
+  {
+    key: "Department",
+    header: "Department",
+  },
+  {
+    key: "Brand",
+    header: "Brand",
+  },
+  {
+    key: "Model",
+    header: "Model",
+  },
+  {
+    key: "SerialNumber",
+    header: "Serial Number",
   },
 ];
 
+
+
+
 export default function ShowPanel() {
 
-
-  const [Nombre, CambioNombre] = useState("Andres")
-
-
+ 
+ 
   return (
     <>
       <Styled.MainContainer>
@@ -63,12 +79,12 @@ export default function ShowPanel() {
   rows={rows}
   headers={headers}
   render={({ rows, headers, getHeaderProps, onInputChange }) => (
-    <TableContainer title={Nombre}>
+    <TableContainer title="a">
       <TableToolbar>
         {/* pass in `onInputChange` change here to make filtering work */}
         <TableToolbarSearch onChange={onInputChange} />
         <TableToolbarContent>
-          <Button small kind="primary" onClick={()=> CambioNombre("Gustavo")}>
+          <Button small kind="primary">
             new user
           </Button>
         </TableToolbarContent>
