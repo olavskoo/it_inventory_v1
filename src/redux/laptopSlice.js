@@ -2,12 +2,12 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     ID: "",
-    UserName: "",
-    SSO: "",
-    Department: "",
-    Brand: "",
-    Model: "",
-    SerialNumber: ""
+    UserName: "Gustavo Saenz",
+    SSO: "123456789",
+    Department: "IT",
+    Brand: "Latitude",
+    Model: "5450",
+    SerialNumber: "adsfersd"
 };
 
 export const laptopSlice = createSlice({
