@@ -105,30 +105,31 @@ const [table, setTable] = useState("Laptop")
 }
 
 function PrinterTable(){
-  //////////////////////////////////////////LAPTOPS ROWS & HEADER///////////////////////////////////////////////////////////
-  const laptopRows = [
+  //////////////////////////////////////////PRINTER ROWS & HEADER///////////////////////////////////////////////////////////
+  const printerRows = [
     {
       id: "a",
-      userName: "laptop.UserName",
-      SSO: "laptop.SSO",
-      Department: "laptop.Department",
-      Brand: "laptop.Brand",
-      Model: "laptop.Model",
-      SerialNumber: "laptop.SerialNumber"
+      Name: "Printer.Name",
+      assetNumber: "printer.AssetNumber",
+      serialNumber: "printer.SerialNumber",
+      Brand: "printer.Brand",
+      Model: "printer.Model",
+      IP: "printer.IP",
+      Area: "printer.Area"
     },
   ];
-  const laptopHeaders = [
+  const printerHeaders = [
     {
-      key: "userName",
-      header: "User Name",
+      key: "Name",
+      header: "Name",
     },
     {
-      key: "SSO",
-      header: "SSO",
+      key: "AssetNumber",
+      header: "Asset Number",
     },
     {
-      key: "Department",
-      header: "Department",
+      key: "SerialNumber",
+      header: "Serial Number",
     },
     {
       key: "Brand",
@@ -139,18 +140,23 @@ function PrinterTable(){
       header: "Model",
     },
     {
-      key: "SerialNumber",
-      header: "Serial Number",
+      key: "IP",
+      header: "IP",
     },
+    {
+      key: "Area",
+      header: "Area",
+    }
   ];
+
 
   return(
 
     ///////////////////////////////PRINTER TABLE/////////////////////////////////////////////////   
 <Styled.PrinterTable>
       <DataTable
-  rows={laptopRows}
-  headers={laptopHeaders}
+  rows={printerRows}
+  headers={printerHeaders}
   render={({ rows, headers, getHeaderProps, onInputChange }) => (
     <TableContainer title="Computers">
       <TableToolbar>
@@ -191,19 +197,19 @@ function PrinterTable(){
 }
 
 function PhoneTable(){
-   //////////////////////////////////////////LAPTOPS ROWS & HEADER///////////////////////////////////////////////////////////
-   const laptopRows = [
+   //////////////////////////////////////////PHONE ROWS & HEADER///////////////////////////////////////////////////////////
+   const phoneRows = [
     {
       id: "a",
-      userName: "laptop.UserName",
-      SSO: "laptop.SSO",
-      Department: "laptop.Department",
-      Brand: "laptop.Brand",
-      Model: "laptop.Model",
-      SerialNumber: "laptop.SerialNumber"
+      userName: "phone.UserName",
+      SSO: "phone.SSO",
+      Department: "phone.Department",
+      Brand: "phone.Brand",
+      Model: "phone.Model",
+      IMEI: "phone.IMEI"
     },
   ];
-  const laptopHeaders = [
+  const phoneHeaders = [
     {
       key: "userName",
       header: "User Name",
@@ -225,8 +231,8 @@ function PhoneTable(){
       header: "Model",
     },
     {
-      key: "SerialNumber",
-      header: "Serial Number",
+      key: "IMEI",
+      header: "IMEI",
     },
   ];
 
@@ -234,8 +240,8 @@ function PhoneTable(){
   /////////////////////////////////PHONES////////////////////////////////////////////////   
 <Styled.Phones>
       <DataTable
-  rows={laptopRows}
-  headers={laptopHeaders}
+  rows={phoneRows}
+  headers={phoneHeaders}
   render={({ rows, headers, getHeaderProps, onInputChange }) => (
     <TableContainer title="Computers">
       <TableToolbar>
