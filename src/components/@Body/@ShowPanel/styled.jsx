@@ -8,6 +8,30 @@ export const MainContainer = styled.div`
     border: 2px solid #6400A0;
 `
 
+export const LaptopTable = styled.div`
+display: flex;
+flex-direction: column;
+width: 98%;
+height: 95%;
+border: 2px solid #6400A0;
+`
+
+export const PrinterTable = styled.div`
+display: flex;
+flex-direction: column;
+width: 98%;
+height: 95%;
+border: 2px solid #6400A0;
+`
+
+export const PhoneTable = styled.div`
+display: flex;
+flex-direction: column;
+width: 98%;
+height: 95%;
+border: 2px solid #6400A0;
+`
+
 export const ToolbarContainer = styled.div`
     display: flex;
     align-items: flex-end;
