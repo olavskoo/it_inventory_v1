@@ -10,7 +10,7 @@ export const LOCAL_DATA = createSlice({
     name: "LOCAL_DATA",
     initialState,
     reducers: {
-        ChangeTable: functions.ChangeTable
+        SetTable: functions.SetTable
     }
 })
 

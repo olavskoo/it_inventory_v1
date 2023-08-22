@@ -18,7 +18,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { DATA_ACTIONS, LAPTOPS_SELECTOR } from "../../../store/DATA";
 
-const [table, setTable] = useState("Laptop")
+
 
  function LaptopTable(){
 
@@ -61,7 +61,7 @@ const [table, setTable] = useState("Laptop")
     },
   ];
 
-  return
+  return(
   ///////////////////////////////LAPTOP TABLE/////////////////////////////////////////////////////////
       <Styled.LaptopTable>
       <DataTable
@@ -102,6 +102,7 @@ const [table, setTable] = useState("Laptop")
   )}
 />
       </Styled.LaptopTable>
+      );
 }
 
 function PrinterTable(){
@@ -238,7 +239,7 @@ function PhoneTable(){
 
   return(
   /////////////////////////////////PHONES////////////////////////////////////////////////   
-<Styled.Phones>
+<Styled.PhoneTable>
       <DataTable
   rows={phoneRows}
   headers={phoneHeaders}
@@ -276,17 +277,18 @@ function PhoneTable(){
     </TableContainer>
   )}
 />
-      </Styled.Phones> 
-)}
+      </Styled.PhoneTable> 
+);
+}
 
 export default function ShowPanel(propa) { 
-
+  const [table, setTable] = useState("Laptop")
  
   return (
     <>
-        {table === 'Laptop && <LaptopTable/>'}
-        {table === 'Printer && <PrinterTable/>'}
-        {table === 'Phone && <PhoneTable/>'}
+      {table === "Laptop" ? <LaptopTable/>}
+      {table === "Printer" ? <PrinterTable/>}
+      {table === "Phone" ? <PhoneTable/>}
     </>
   );
 }
