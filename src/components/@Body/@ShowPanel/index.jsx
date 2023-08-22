@@ -21,18 +21,26 @@ import { TABLE_SELECTOR } from "../../../store/LOCAL_DATA";
 
  function LaptopTable(){
 
-const TEST = useSelector(LAPTOPS_SELECTOR);
-console.log(TEST[0]);
+const LAPTOPS = useSelector(LAPTOPS_SELECTOR);
   //////////////////////////////////////////LAPTOPS ROWS & HEADER///////////////////////////////////////////////////////////
   const laptopRows = [
     {
       id: "a",
-      userName: TEST[0].USERNAME,
-      SSO: "laptop.SSO",
-      Department: "laptop.Department",
-      Brand: "laptop.Brand",
-      Model: "laptop.Model",
-      SerialNumber: "laptop.SerialNumber"
+      userName: LAPTOPS[0].USERNAME,
+      SSO: LAPTOPS[0].SSO,
+      Department: LAPTOPS[0].DEPARTMENT,
+      Brand: LAPTOPS[0].BRAND,
+      Model: LAPTOPS[0].MODEL,
+      SerialNumber: LAPTOPS[0].SERIAL_NUMBER
+    },
+    {
+      id: "b",
+      userName: LAPTOPS[1].USERNAME,
+      SSO: LAPTOPS[1].SSO,
+      Department: LAPTOPS[1].DEPARTMENT,
+      Brand: LAPTOPS[1].BRAND,
+      Model: LAPTOPS[1].MODEL,
+      SerialNumber: LAPTOPS[1].SERIAL_NUMBER
     },
   ];
   const laptopHeaders = [
