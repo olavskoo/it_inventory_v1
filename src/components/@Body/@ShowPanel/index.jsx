@@ -19,6 +19,7 @@ import { useState } from "react";
 import { DATA_ACTIONS, LAPTOPS_SELECTOR } from "../../../store/DATA";
 import { TABLE_SELECTOR } from "../../../store/LOCAL_DATA";
 
+
  function LaptopTable(){
 
 const LAPTOPS = useSelector(LAPTOPS_SELECTOR);
@@ -78,12 +79,13 @@ const LAPTOPS = useSelector(LAPTOPS_SELECTOR);
   headers={laptopHeaders}
   render={({ rows, headers, getHeaderProps, onInputChange }) => (
     <TableContainer title="Computers">
-      <TableToolbar>
+      <TableToolbar  style={{ display: "flex", alignItems: "flexEnd"}}>
         {/* pass in `onInputChange` change here to make filtering work */}
-        <TableToolbarSearch onChange={onInputChange} />
+        
         <TableToolbarContent>
-          <Button small="true" kind="primary">
-            new user
+        <TableToolbarSearch onChange={onInputChange}/>
+          <Button kind="ghost">
+             <i class="fa-solid fa-user-plus" style={{color: "#ffffff"}}></i>
           </Button>
         </TableToolbarContent>
       </TableToolbar>
@@ -115,6 +117,7 @@ const LAPTOPS = useSelector(LAPTOPS_SELECTOR);
 }
 
 function PrinterTable(){
+  const TableName = useSelector(TABLE_SELECTOR)
   //////////////////////////////////////////PRINTER ROWS & HEADER///////////////////////////////////////////////////////////
   const printerRows = [
     {
@@ -168,7 +171,7 @@ function PrinterTable(){
   rows={printerRows}
   headers={printerHeaders}
   render={({ rows, headers, getHeaderProps, onInputChange }) => (
-    <TableContainer title="Computers">
+    <TableContainer title="Printers">
       <TableToolbar>
         {/* pass in `onInputChange` change here to make filtering work */}
         <TableToolbarSearch onChange={onInputChange} />
@@ -253,7 +256,7 @@ function PhoneTable(){
   rows={phoneRows}
   headers={phoneHeaders}
   render={({ rows, headers, getHeaderProps, onInputChange }) => (
-    <TableContainer title="Computers">
+    <TableContainer title="Phones">
       <TableToolbar>
         {/* pass in `onInputChange` change here to make filtering work */}
         <TableToolbarSearch onChange={onInputChange} />

@@ -14,6 +14,13 @@ flex-direction: column;
 width: 98%;
 height: 95%;
 border: 2px solid #6400A0;
+& .cds--search-input:focus{
+    outline-color: #6400A0;
+}
+& .cds--btn{
+    background-color: #6400A0;
+}
+
 `
 
 export const PrinterTable = styled.div`
