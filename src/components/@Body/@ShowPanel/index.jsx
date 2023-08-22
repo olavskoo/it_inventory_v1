@@ -21,11 +21,13 @@ import { TABLE_SELECTOR } from "../../../store/LOCAL_DATA";
 
  function LaptopTable(){
 
+const TEST = useSelector(LAPTOPS_SELECTOR);
+console.log(TEST[0]);
   //////////////////////////////////////////LAPTOPS ROWS & HEADER///////////////////////////////////////////////////////////
   const laptopRows = [
     {
       id: "a",
-      userName: "laptop.UserName",
+      userName: TEST[0].USERNAME,
       SSO: "laptop.SSO",
       Department: "laptop.Department",
       Brand: "laptop.Brand",

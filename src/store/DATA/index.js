@@ -1,19 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 import * as functions from './functions'
-// import {initialState} from './constants'
-
-
-export const initalState  = {
-    LAPTOPS: [],
-    MOBILES: [],
-    PRINTERS: [],
-}
+import {initialState} from './constants'
 
 
 export const DATA = createSlice({
 
     name: "DATA",
-    initalState,
+    initialState,
     reducers: {
         // global
         restoreSlice: functions.restoreSlice,
@@ -32,3 +25,5 @@ export const DATA_SELECTOR = (state) => state.DATA
 export const LAPTOPS_SELECTOR = (state) => state.DATA.LAPTOPS
 export const MOBILES_SELECTOR = (state) => state.DATA.MOBILES
 export const PRINTERS_SELECTOR = (state) => state.DATA.PRINTERS
+
+export default DATA.reducer;

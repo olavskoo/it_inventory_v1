@@ -1,5 +1,7 @@
-export const initalState  = {
-    LAPTOPS: [],
+export const initialState  = {
+    LAPTOPS: [{
+        USERNAME: "Hola Mundo",
+    }],
     MOBILES: [],
     PRINTERS: [],
 }
