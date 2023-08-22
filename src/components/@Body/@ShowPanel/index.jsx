@@ -17,8 +17,7 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { DATA_ACTIONS, LAPTOPS_SELECTOR } from "../../../store/DATA";
-
-
+import { TABLE_SELECTOR } from "../../../store/LOCAL_DATA";
 
  function LaptopTable(){
 
@@ -111,8 +110,8 @@ function PrinterTable(){
     {
       id: "a",
       Name: "Printer.Name",
-      assetNumber: "printer.AssetNumber",
-      serialNumber: "printer.SerialNumber",
+      AssetNumber: "printer.AssetNumber",
+      SerialNumber: "printer.SerialNumber",
       Brand: "printer.Brand",
       Model: "printer.Model",
       IP: "printer.IP",
@@ -282,13 +281,13 @@ function PhoneTable(){
 }
 
 export default function ShowPanel(propa) { 
-  const [table, setTable] = useState("Laptop")
+  const TableName = useSelector(TABLE_SELECTOR)
  
   return (
     <>
-      {table === "Laptop" ? <LaptopTable/>}
-      {table === "Printer" ? <PrinterTable/>}
-      {table === "Phone" ? <PhoneTable/>}
+      {TableName=== "Laptop" && <LaptopTable/>}
+      {TableName=== "Printer" && <PrinterTable/>}
+      {TableName=== "Phone" && <PhoneTable/>}
     </>
   );
 }

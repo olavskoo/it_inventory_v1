@@ -1,10 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
+import {combineReducers} from "redux"
+import LOCAL_DATA from "./LOCAL_DATA";
+
+// const reducers = combineReducers({
+//     LOCAL_DATA
+// })
 
 export const store = configureStore({
     reducer: {
-        // laptop: laptopReducer,
-        // phone: phoneReducer,
-        // printer: printerReducer
-        
+        LOCAL_DATA
     }
 })
