@@ -172,12 +172,13 @@ function PrinterTable(){
   headers={printerHeaders}
   render={({ rows, headers, getHeaderProps, onInputChange }) => (
     <TableContainer title="Printers">
-      <TableToolbar>
+      <TableToolbar  style={{ display: "flex", alignItems: "flexEnd"}}>
         {/* pass in `onInputChange` change here to make filtering work */}
-        <TableToolbarSearch onChange={onInputChange} />
+        
         <TableToolbarContent>
-          <Button small="true" kind="primary">
-            new user
+        <TableToolbarSearch onChange={onInputChange}/>
+          <Button kind="ghost">
+             <i class="fa-solid fa-user-plus" style={{color: "#ffffff"}}></i>
           </Button>
         </TableToolbarContent>
       </TableToolbar>
@@ -257,12 +258,13 @@ function PhoneTable(){
   headers={phoneHeaders}
   render={({ rows, headers, getHeaderProps, onInputChange }) => (
     <TableContainer title="Phones">
-      <TableToolbar>
+      <TableToolbar  style={{ display: "flex", alignItems: "flexEnd"}}>
         {/* pass in `onInputChange` change here to make filtering work */}
-        <TableToolbarSearch onChange={onInputChange} />
+        
         <TableToolbarContent>
-          <Button small="true" kind="primary">
-            new user
+        <TableToolbarSearch onChange={onInputChange}/>
+          <Button kind="ghost">
+             <i class="fa-solid fa-user-plus" style={{color: "#ffffff"}}></i>
           </Button>
         </TableToolbarContent>
       </TableToolbar>
