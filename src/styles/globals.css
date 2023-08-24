@@ -1,13 +1,8 @@
 * {
-
     box-sizing: border-box !important;
-
-    font-family: "GE Inspira Sans";
-
+    font-family: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
     scroll-behavior: smooth;
-
   }
-
   html,
 
   body,

@@ -1,6 +1,6 @@
 import React from "react";
 import * as Styled from "./styled";
-import GeLogoWhite from "../img/GeLogoWhite.png";
+import GeLogoWhite from "../img/GE/GeLogoWhite.png";
 
 export default function Header() {
   return (
