@@ -1,6 +1,7 @@
 import React from "react";
 import * as Styled from "./styled";
 import GeLogoWhite from "../img/GE/GeLogoWhite.png";
+import BorderOpsColor from "../img/BorderOps/BorderOpsColor.png"
 
 export default function Header() {
   return (
@@ -11,9 +12,9 @@ export default function Header() {
             <a href="/">
               {" "}
               <img
-                src={GeLogoWhite}
+                src={BorderOpsColor}
                 alt="GE Logo"
-                style={{ width: "150%", height: "100%" }}
+                style={{ width: "100%", height: "100%" }}
               />
             </a>
           </Styled.LeftContent>

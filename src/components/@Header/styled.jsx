@@ -4,26 +4,22 @@ export const MainContainer = styled.div`
   display: flex;
   width: 100%;
   height: 10%;
-  background: rgb(100, 0, 160);
-  background: linear-gradient(
-    90deg,
-    rgba(100, 0, 160, 1) 0%,
-    rgba(228, 228, 228, 1) 100%
-  );
+  background: rgb(100,0,160);
+  background: linear-gradient(90deg, rgba(100,0,160,1) 0%, rgba(14,14,82,1) 100%);
 `;
 
 export const LeftContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 10%;
+  width: 20%;
   height: 100%;
 `;
 export const RightContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 90%;
+  width: 80%;
   height: 100%;
 `;
 export const LeftContent = styled.div`
@@ -37,7 +33,7 @@ export const RightContent = styled.a`
   align-items: center;
   width: 98%;
   height: 93%;
-  color: #6400a0;
+  color: #f4f4f8;
   &:hover{
     cursor: pointer;
   }
