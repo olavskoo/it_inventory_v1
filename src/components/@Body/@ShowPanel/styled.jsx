@@ -16,7 +16,11 @@ height: 95%;
 box-shadow: -20px 7px 30px 10px rgba(0,0,0,0.2);
 border-radius: 20px;
 & .cds--search-input:focus{
-    outline-color: #6400A0;
+    outline: none;
+    background: linear-gradient(white, white) padding-box,
+    linear-gradient(to right, darkblue, darkorchid) border-box;
+border-radius: 2em;
+border: 2px solid transparent;
 }
 & .cds--btn{
     background-color: #6400A0;
@@ -24,6 +28,15 @@ border-radius: 20px;
 & .cds--data-table-header{
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
+}
+& .cds--search-close{
+   
+    outline: none;
+    background: transparent;
+    
+border-radius: 2em;
+border: 2px solid linear-gradient(to right, darkblue, darkorchid) border-box;
+
 }
 
 `

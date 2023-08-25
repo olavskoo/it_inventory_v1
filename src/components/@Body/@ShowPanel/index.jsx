@@ -84,7 +84,7 @@ const LAPTOPS = useSelector(LAPTOPS_SELECTOR);
         
         <TableToolbarContent>
         <TableToolbarSearch onChange={onInputChange}/>
-          <Button kind="ghost">
+          <Button kind="ghost" style={{borderRadius: "2em"}}>
              <i class="fa-solid fa-user-plus" style={{color: "#ffffff"}}></i>
           </Button>
         </TableToolbarContent>
