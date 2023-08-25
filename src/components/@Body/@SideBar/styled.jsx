@@ -23,6 +23,17 @@ export const LinksContent = styled.button`
         cursor: pointer;
         color: #8D8D8D;
     }
+    &:after{
+        content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #000;
+    transition: width .3s;
+    }
+    &:hover::after{
+        width: 100%;
+    }
 `
 export const LinksIcon = styled.div`
     display: flex;

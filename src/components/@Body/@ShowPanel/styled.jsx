@@ -13,7 +13,7 @@ display: flex;
 flex-direction: column;
 width: 98%;
 height: 95%;
-border: 2px solid #6400A0;
+box-shadow: -20px 7px 30px 10px rgba(0,0,0,0.2);
 & .cds--search-input:focus{
     outline-color: #6400A0;
 }
@@ -28,7 +28,7 @@ display: flex;
 flex-direction: column;
 width: 98%;
 height: 95%;
-border: 2px solid #6400A0;
+box-shadow: -20px 7px 30px 10px rgba(0,0,0,0.2);
 & .cds--search-input:focus{
     outline-color: #6400A0;
 }
@@ -42,7 +42,7 @@ display: flex;
 flex-direction: column;
 width: 98%;
 height: 95%;
-border: 2px solid #6400A0;
+box-shadow: -20px 7px 30px 10px rgba(0,0,0,0.2);
 & .cds--search-input:focus{
     outline-color: #6400A0;
 }
