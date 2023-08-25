@@ -34,11 +34,16 @@ flex-direction: column;
 width: 98%;
 height: 95%;
 box-shadow: -20px 7px 30px 10px rgba(0,0,0,0.2);
+border-radius: 20px;
 & .cds--search-input:focus{
     outline-color: #6400A0;
 }
 & .cds--btn{
     background-color: #6400A0;
+}
+& .cds--data-table-header{
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
 }
 `
 
@@ -48,11 +53,16 @@ flex-direction: column;
 width: 98%;
 height: 95%;
 box-shadow: -20px 7px 30px 10px rgba(0,0,0,0.2);
+border-radius: 20px;
 & .cds--search-input:focus{
     outline-color: #6400A0;
 }
 & .cds--btn{
     background-color: #6400A0;
+}
+& .cds--data-table-header{
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
 }
 `
 
