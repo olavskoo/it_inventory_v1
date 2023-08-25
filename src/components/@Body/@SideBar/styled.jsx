@@ -22,17 +22,7 @@ export const LinksContent = styled.button`
     &:hover{
         cursor: pointer;
         color: #8D8D8D;
-    }
-    &:after{
-        content: '';
-    display: block;
-    width: 0;
-    height: 2px;
-    background: #000;
-    transition: width .3s;
-    }
-    &:hover::after{
-        width: 100%;
+        border-bottom: 1px solid;
     }
 `
 export const LinksIcon = styled.div`
