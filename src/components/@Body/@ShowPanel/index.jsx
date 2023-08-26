@@ -18,13 +18,12 @@ import {
   TableBatchActions,
   TableSelectRow,
   TableSelectAll,
-  ModalWrapper
 } from "@carbon/react";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { DATA_ACTIONS, LAPTOPS_SELECTOR } from "../../../store/DATA";
 import { TABLE_SELECTOR } from "../../../store/LOCAL_DATA";
-import { LaptopForm } from "../@Forms";
+import { LaptopForm, Modal } from "../@Forms";
 
 
 
@@ -96,13 +95,7 @@ const items = ["BOP1", "BOP2"];
           initialSelectedItem={items[0]}
           style={{width: '15%', height: '100%'}}
         />
-      <ModalWrapper
-      buttonTriggerText={<i class="fa-solid fa-user-plus"></i>} 
-      modalHeading="Modal heading"
-      modalLabel="Label"
-      size= "lg"
-    >
-    </ModalWrapper>
+        <Modal/>
     </div>
       <TableToolbar  style={{ display: "flex", alignItems: "flexEnd"}}>
         {/* pass in `onInputChange` change here to make filtering work */}
@@ -110,18 +103,21 @@ const items = ["BOP1", "BOP2"];
 
         <TableBatchActions {...getBatchActionProps()}>
           <TableBatchAction
+          className="ActionButton"
             tabIndex={getBatchActionProps().shouldShowBatchActions ? 0 : -1}
             onClick={() => console.log('clicked')}
           >
             Delete
           </TableBatchAction>
           <TableBatchAction
+          className="ActionButton"
             tabIndex={getBatchActionProps().shouldShowBatchActions ? 0 : -1}
             onClick={() => console.log('clicked')}
           >
             Save
           </TableBatchAction>
           <TableBatchAction
+          className="ActionButton"
             tabIndex={getBatchActionProps().shouldShowBatchActions ? 0 : -1}
             onClick={() => console.log('clicked')}
           >
@@ -358,5 +354,6 @@ export default function ShowPanel(propa) {
     </>
   );
 }
+
 
 

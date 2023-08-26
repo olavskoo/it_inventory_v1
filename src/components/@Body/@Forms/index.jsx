@@ -1,6 +1,8 @@
 import React from "react";
 import * as Styled from "./styled";
-import {ModalWrapper, Form, Stack, TextInput, TextArea, Select,SelectItem, Button, Dropdown} from "@carbon/react";
+import {ModalHeader, ComposedModal, ModalBody, ModalFooter, Form, Stack, TextInput, TextArea, Select,SelectItem, Button, Dropdown} from "@carbon/react";
+import { useState, useRef } from "react";
+import * as ReactDOM from 'react-dom';
 
 export function LaptopForm() {
 
@@ -51,4 +53,40 @@ const siteItems=["BOP1","BOP2"]
         </Stack>
       </Form>
   </>);
+}
+
+
+export function Modal(){
+  const button = useRef();
+  /**
+   * Simple state manager for modals.
+   */
+  const ModalStateManager = ({
+    renderLauncher: LauncherContent,
+    children: ModalContent
+  }) => {
+    const [open, setOpen] = useState(false);
+    return <>
+        {!ModalContent || typeof document === 'undefined' ? null : ReactDOM.createPortal(<ModalContent open={open} setOpen={setOpen} />, document.body)}
+        {LauncherContent && <LauncherContent open={open} setOpen={setOpen} />}
+</>;
+  };
+  return <ModalStateManager renderLauncher={({
+    setOpen
+  }) => <Button ref={button} onClick={() => setOpen(true)}>
+          Launch composed modal
+</Button>}>
+      {({
+      open,
+      setOpen
+    }) => <ComposedModal open={open} onClose={() => {
+      setOpen(false);
+    }} launcherButtonRef={button}>
+<ModalHeader label="Account resources" title="Add a custom domain" />
+<ModalBody>
+<LaptopForm/>
+</ModalBody>
+<ModalFooter primaryButtonText="Add" secondaryButtonText="Cancel" />
+</ComposedModal>}
+</ModalStateManager>;
 }
