@@ -1,38 +1,53 @@
 import React from "react";
 import * as Styled from "./styled";
-import {ModalWrapper, Form, Stack, TextInput, TextArea, Select,SelectItem, Button} from "@carbon/react";
+import {ModalWrapper, Form, Stack, TextInput, TextArea, Select,SelectItem, Button, Dropdown} from "@carbon/react";
 
 export function LaptopForm() {
+
+const departmentItems=["IT","QA","Manufacture","Training","Production","Warehouse","Lean","Manteinance","HR","Finance"]
+const brandItems=["DELL","HP","Apple"]
+const siteItems=["BOP1","BOP2"]
+
 
   return(<>
       <Form>
         <Stack gap={7}>
+        <TextInput
+            helperText="Optional helper text here; if message is more than one line text should wrap (~100 character count maximum)"
+            id="Username"
+            invalidText="Invalid error message."
+            labelText="User"
+            placeholder="Name and surname"
+          />
           <TextInput
             helperText="Optional helper text here; if message is more than one line text should wrap (~100 character count maximum)"
-            id="test2"
+            id="Sso"
             invalidText="Invalid error message."
             labelText="SSO"
-            placeholder="Optional placeholder text"
+            placeholder="Enter SSO"
           />
-          <TextArea
-            cols={50}
+          <Dropdown
+          id="Department"
+          label="Select Department"
+          items={departmentItems}
+          />
+          <Dropdown
+          id="Department"
+          label="Select Brand"
+          items={brandItems}
+          />
+          <TextInput
             helperText="Optional helper text here; if message is more than one line text should wrap (~100 character count maximum)"
-            id="test5"
+            id="SerialNumber"
             invalidText="Invalid error message."
-            labelText="Text area label"
-            placeholder="Optional placeholder text"
-            rows={4}
+            labelText="Serial Number"
+            placeholder="Enter Serial Number"
           />
-          <Select
-            defaultValue="placeholder-item"
-            id="select-1"
-            invalidText="This is an invalid error message."
-            labelText="Select"
-          >
-            <SelectItem text="Option 1" value="option-1" />
-            <SelectItem text="Option 2" value="option-2" />
-            <SelectItem text="Option 3" value="option-3" />
-          </Select>
+           <Dropdown
+          id="Site"
+          label="Select Site"
+          items={siteItems}
+          />
         </Stack>
       </Form>
   </>);
