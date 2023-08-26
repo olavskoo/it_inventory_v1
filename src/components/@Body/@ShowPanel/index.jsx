@@ -17,12 +17,14 @@ import {
   TableBatchAction,
   TableBatchActions,
   TableSelectRow,
-  TableSelectAll
+  TableSelectAll,
+  ModalWrapper
 } from "@carbon/react";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { DATA_ACTIONS, LAPTOPS_SELECTOR } from "../../../store/DATA";
 import { TABLE_SELECTOR } from "../../../store/LOCAL_DATA";
+import { LaptopForm } from "../@Forms";
 
 
 
@@ -87,6 +89,18 @@ const items = ["BOP1", "BOP2"];
   headers={laptopHeaders}
   render={({ rows, headers, getHeaderProps, getRowProps, getSelectionProps, getBatchActionProps, onInputChange, selectedRows, }) => (
     <TableContainer title="Computers" >
+        <div><Dropdown
+          id="SiteExample"
+          items={items}
+          initialSelectedItem={items[0]}
+        />
+      <ModalWrapper
+      buttonTriggerText="Launch modal"
+      modalHeading="Modal heading"
+      modalLabel="Label"
+    >
+      <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse cursus fermentum risus, sit amet fringilla nunc pellentesque quis. Duis quis odio ultrices, cursus lacus ac, posuere felis. Donec dignissim libero in augue mattis, a molestie metus vestibulum. Aliquam placerat felis ultrices lorem condimentum, nec ullamcorper felis porttitor. </p>
+    </ModalWrapper></div>
       <TableToolbar  style={{ display: "flex", alignItems: "flexEnd"}}>
         {/* pass in `onInputChange` change here to make filtering work */}
 
@@ -115,16 +129,11 @@ const items = ["BOP1", "BOP2"];
 
         <TableToolbarContent>
         <TableToolbarSearch onChange={onInputChange} tabIndex={getBatchActionProps().shouldShowBatchActions ? -1 : 0}/>
-        <div style={{width: '15%', height: '100%', margin: '0 .5em'}}>
-        <Dropdown
-          id="SiteExample"
-          items={items}
-          initialSelectedItem={items[0]}
-        />
-      </div>
-          <Button kind="ghost" style={{borderRadius: "2em", marginRight: '.5em'}}>
+        
+          {/* <Button kind="ghost" style={{borderRadius: "2em", marginRight: '.5em'}}>
              <i class="fa-solid fa-user-plus" style={{color: "#ffffff"}}></i>
-          </Button> 
+          </Button>  */}
+          
         </TableToolbarContent>
       </TableToolbar>
       <Table>
