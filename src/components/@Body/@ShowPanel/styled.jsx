@@ -9,6 +9,7 @@ export const MainContainer = styled.div`
 `
 
 export const LaptopTable = styled.div`
+font-family: GE Inspira Sans;
 display: flex;
 flex-direction: column;
 width: 98%;
@@ -36,7 +37,10 @@ border: 2px solid transparent;
     
 border-radius: 2em;
 border: 2px solid linear-gradient(to right, darkblue, darkorchid) border-box;
-
+}
+h4 {
+    color: #6400A0;
+    font-size: 1.7rem;
 }
 
 `

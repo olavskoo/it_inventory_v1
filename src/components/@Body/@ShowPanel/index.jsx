@@ -78,7 +78,7 @@ const LAPTOPS = useSelector(LAPTOPS_SELECTOR);
   rows={laptopRows}
   headers={laptopHeaders}
   render={({ rows, headers, getHeaderProps, onInputChange }) => (
-    <TableContainer title="Computers">
+    <TableContainer title="Computers" >
       <TableToolbar  style={{ display: "flex", alignItems: "flexEnd"}}>
         {/* pass in `onInputChange` change here to make filtering work */}
         
