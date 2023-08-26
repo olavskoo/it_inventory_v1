@@ -97,7 +97,6 @@ const items = ["BOP1", "BOP2"];
           style={{width: '15%', height: '100%'}}
         />
       <ModalWrapper
-      className='test'
       buttonTriggerText={<i class="fa-solid fa-user-plus"></i>} 
       modalHeading="Modal heading"
       modalLabel="Label"

@@ -25,6 +25,8 @@ border: 2px solid transparent;
 }
 & .cds--btn{
     background-color: #6400A0;
+    border-radius: 2em;
+    margin-right: .5em;
 }
 & .cds--data-table-header{
     border-top-left-radius: 20px;
@@ -41,17 +43,6 @@ border: 2px solid linear-gradient(to right, darkblue, darkorchid) border-box;
 h4 {
     color: #6400A0;
     font-size: 1.7rem;
-}
-& .cds--btn{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 2em;
-    margin-right: .5em;
-}
-& .test{
-    width: 10%;
-    height: 100%;
 }
 `
 
