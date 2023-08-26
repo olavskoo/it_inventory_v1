@@ -89,18 +89,22 @@ const items = ["BOP1", "BOP2"];
   headers={laptopHeaders}
   render={({ rows, headers, getHeaderProps, getRowProps, getSelectionProps, getBatchActionProps, onInputChange, selectedRows, }) => (
     <TableContainer title="Computers" >
-        <div><Dropdown
-          id="SiteExample"
+        <div style={{display: 'flex', alignContent: 'center', justifyContent: 'flex-end', backgroundColor: '#F4F4F4'}}>
+          <Dropdown
+          id="SiteSelector"
           items={items}
           initialSelectedItem={items[0]}
+          style={{width: '15%', height: '100%'}}
         />
       <ModalWrapper
-      buttonTriggerText="Launch modal"
+      className='test'
+      buttonTriggerText={<i class="fa-solid fa-user-plus"></i>} 
       modalHeading="Modal heading"
       modalLabel="Label"
+      size= "lg"
     >
-      <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse cursus fermentum risus, sit amet fringilla nunc pellentesque quis. Duis quis odio ultrices, cursus lacus ac, posuere felis. Donec dignissim libero in augue mattis, a molestie metus vestibulum. Aliquam placerat felis ultrices lorem condimentum, nec ullamcorper felis porttitor. </p>
-    </ModalWrapper></div>
+    </ModalWrapper>
+    </div>
       <TableToolbar  style={{ display: "flex", alignItems: "flexEnd"}}>
         {/* pass in `onInputChange` change here to make filtering work */}
 
