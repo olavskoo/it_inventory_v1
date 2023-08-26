@@ -2,6 +2,8 @@ import React from "react";
 import * as Styled from "./styled";
 import GeLogoWhiteClean from "../img/GE/GeLogoWhiteClean.png";
 import BorderOpsColor from "../img/BorderOps/BorderOpsColor.png"
+import { LaptopForm } from "../@Body/@Forms";
+import {ModalWrapper } from "@carbon/react"
 
 export default function Header() {
   return (
@@ -14,9 +16,12 @@ export default function Header() {
             <h2>IT Inventory</h2>
           </Styled.TitleContainer>
           <Styled.UserContainer>
-            <button className="UserButton">
-               <i class="fa-regular fa-user" style={{fontSize: "2em"}}></i>
-            </button>
+            <ModalWrapper
+            buttonTriggerText="Launch modal"
+            modalHeading="Modal heading"
+            modalLabel="Label">
+              <LaptopForm/>
+            </ModalWrapper>
           </Styled.UserContainer>
       </Styled.MainContainer>
     </>
