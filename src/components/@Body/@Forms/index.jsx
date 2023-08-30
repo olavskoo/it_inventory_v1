@@ -3,6 +3,9 @@ import * as Styled from "./styled";
 import {ModalHeader, ComposedModal, ModalBody, ModalFooter, Form, Stack, TextInput, TextArea, Select,SelectItem, Button, Dropdown} from "@carbon/react";
 import { useState, useRef } from "react";
 import * as ReactDOM from 'react-dom';
+import { useSelector } from "react-redux";
+import { TABLE_SELECTOR } from "../../../store/LOCAL_DATA";
+
 
 export function LaptopForm() {
 
@@ -57,7 +60,7 @@ const siteItems=["BOP1","BOP2"]
   </>);
 }
 
-export function PhonesForm(){
+export function PhoneForm(){
 
   const departmentItems=["IT","QA","Manufacture","Training","Production","Warehouse","Lean","Manteinance","HR","Finance"]
 const brandItems=["DELL","HP","Apple"]
@@ -110,7 +113,7 @@ const siteItems=["BOP1","BOP2"]
 
 }
 
-export function PrintersForm(){
+export function PrinterForm(){
 
 const brandItems=["ZEBRA","SATO",""]
 const siteItems=["BOP1","BOP2"]
@@ -178,6 +181,7 @@ const areaItems=["Kilo","Case","Flex","V100"]
 }
 
 export function Modal(){
+  const TableName = useSelector(TABLE_SELECTOR);
   const button = useRef();
   /**
    * Simple state manager for modals.
@@ -205,7 +209,9 @@ export function Modal(){
     }} launcherButtonRef={button}>
 <ModalHeader label="Account resources" title="Add a custom domain" />
 <ModalBody>
-<PhonesForm/>
+      {TableName === "Laptop" && <LaptopForm />}
+      {TableName === "Printer" && <PrinterForm />}
+      {TableName === "Phone" && <PhoneForm />}
 </ModalBody>
 <ModalFooter primaryButtonText="Add" secondaryButtonText="Cancel" />
 </ComposedModal>}
