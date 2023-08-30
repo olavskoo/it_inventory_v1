@@ -216,7 +216,9 @@ export function Modal(){
       {TableName === "Printer" && <PrinterForm />}
       {TableName === "Phone" && <PhoneForm />}
 </ModalBody>
-<ModalFooter primaryButtonText="Add" secondaryButtonText="Cancel" />
+
+ <ModalFooter primaryButtonText="Add" secondaryButtonText="Cancel"/>
+
 </ComposedModal>}
 </ModalStateManager>;
 }

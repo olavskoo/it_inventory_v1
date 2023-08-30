@@ -145,6 +145,7 @@ export default function PhoneTable() {
               <Table>
                 <TableHead>
                   <TableRow>
+                    <div></div>
                     {headers.map((header) => (
                       <TableHeader {...getHeaderProps({ header })}>
                         {header.header}

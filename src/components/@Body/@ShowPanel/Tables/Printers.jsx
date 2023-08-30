@@ -150,6 +150,7 @@ export default function PrinterTable() {
               <Table>
                 <TableHead>
                   <TableRow>
+                    <div></div>
                     {headers.map((header) => (
                       <TableHeader {...getHeaderProps({ header })}>
                         {header.header}
