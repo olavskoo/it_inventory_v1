@@ -183,6 +183,8 @@ const areaItems=["Kilo","Case","Flex","V100"]
 export function Modal(){
   const TableName = useSelector(TABLE_SELECTOR);
   const button = useRef();
+
+  let Title = "" 
   /**
    * Simple state manager for modals.
    */
@@ -191,6 +193,9 @@ export function Modal(){
     children: ModalContent
   }) => {
     const [open, setOpen] = useState(false);
+
+
+
     return <>
         {!ModalContent || typeof document === 'undefined' ? null : ReactDOM.createPortal(<ModalContent open={open} setOpen={setOpen} />, document.body)}
         {LauncherContent && <LauncherContent open={open} setOpen={setOpen} />}
@@ -207,7 +212,7 @@ export function Modal(){
     }) => <ComposedModal open={open} onClose={() => {
       setOpen(false);
     }} launcherButtonRef={button}>
-<ModalHeader label="Account resources" title="Add a custom domain" />
+<ModalHeader title={TableName === "Printer" ? Title="Printer Form" : TableName === "Phone" ? Title= "Phone Form" : Title = "Computer Form"}/>
 <ModalBody>
       {TableName === "Laptop" && <LaptopForm />}
       {TableName === "Printer" && <PrinterForm />}
