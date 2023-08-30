@@ -183,8 +183,6 @@ const areaItems=["Kilo","Case","Flex","V100"]
 export function Modal(){
   const TableName = useSelector(TABLE_SELECTOR);
   const button = useRef();
-
-  let Title = "" 
   /**
    * Simple state manager for modals.
    */
@@ -212,7 +210,7 @@ export function Modal(){
     }) => <ComposedModal open={open} onClose={() => {
       setOpen(false);
     }} launcherButtonRef={button}>
-<ModalHeader title={TableName === "Printer" ? Title="Printer Form" : TableName === "Phone" ? Title= "Phone Form" : Title = "Computer Form"}/>
+<ModalHeader title={TableName === "Printer" ? "Printer Form" : TableName === "Phone" ?  "Phone Form" : "Computer Form"}/>
 <ModalBody>
       {TableName === "Laptop" && <LaptopForm />}
       {TableName === "Printer" && <PrinterForm />}
