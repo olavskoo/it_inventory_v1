@@ -3,8 +3,10 @@ import * as Styled from "./styled";
 import {ModalHeader, ComposedModal, ModalBody, ModalFooter, Form, Stack, TextInput, TextArea, Select,SelectItem, Button, Dropdown} from "@carbon/react";
 import { useState, useRef } from "react";
 import * as ReactDOM from 'react-dom';
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { TABLE_SELECTOR } from "../../../store/LOCAL_DATA";
+import { Formik } from "formik";
+import { DATA_ACTIONS } from "../../../store/DATA";
 
 
 export function LaptopForm() {
@@ -12,34 +14,59 @@ export function LaptopForm() {
 const departmentItems=["IT","QA","Manufacture","Training","Production","Warehouse","Lean","Manteinance","HR","Finance"]
 const brandItems=["DELL","HP","Apple"]
 const siteItems=["BOP1","BOP2"]
-
+const dispatch = useDispatch();
 
   return(<>
-      <Form>
+  <Formik
+  initialValues={{UserName: '', sso: '', Department: '', Brand: '', SerialNumber: '', Site: ''}}
+  onSubmit={(values, {setSubmitting})=>{
+    dispatch(DATA_ACTIONS.addLaptop(values))
+  }}
+  >
+     {({
+         values,
+         errors,
+         touched,
+         handleChange,
+         handleBlur,
+         handleSubmit,
+         isSubmitting,
+         setFieldValue
+         /* and other goodies */
+       }) => (
+      <Form onSubmit={handleSubmit}>
         <Stack gap={7}>
         <TextInput
             helperText="Only enter one name and one surname"
-            id="Username"
+            id="UserName"
             invalidText="Invalid error message."
             labelText="User"
             placeholder="Name Surname"
+            onChange={handleChange}
+            value={values.UserName}
           />
           <TextInput
             helperText="Enter SSO"
-            id="Sso"
+            id="sso"
             invalidText="Invalid error message."
             labelText="SSO"
             placeholder="Example: 999999999"
+            value={values.sso}
+            onChange={handleChange}
           />
           <Dropdown
           id="Department"
           label="Select Department"
           items={departmentItems}
+          value={values.Department}
+          onChange={(value)=>{setFieldValue( "Department", value.selectedItem ) }}
           />
           <Dropdown
           id="Brand"
           label="Select Brand"
           items={brandItems}
+          value={values.Brand}
+          onChange={(value)=>{setFieldValue( "Brand", value.selectedItem ) }}
           />
           <TextInput
             helperText="Enter the service tag of the PC"
@@ -47,16 +74,24 @@ const siteItems=["BOP1","BOP2"]
             invalidText="Invalid error message."
             labelText="Serial Number"
             placeholder="Enter Serial Number"
+            value={values.SerialNumber}
+            onChange={handleChange}
           />
            <Dropdown
-          
           id="Site"
           labelText="Site"
           label="Select Site"
           items={siteItems}
+          value={values.Site}
+          onChange={(value)=>{setFieldValue( "Site", value.selectedItem ) }}
           />
         </Stack>
+        <Button type="submit" disabled={isSubmitting}>
+             Submit
+           </Button>
       </Form>
+       )}
+      </Formik>
   </>);
 }
 
@@ -216,8 +251,6 @@ export function Modal(){
       {TableName === "Printer" && <PrinterForm />}
       {TableName === "Phone" && <PhoneForm />}
 </ModalBody>
-
- <ModalFooter primaryButtonText="Add" secondaryButtonText="Cancel"/>
 
 </ComposedModal>}
 </ModalStateManager>;

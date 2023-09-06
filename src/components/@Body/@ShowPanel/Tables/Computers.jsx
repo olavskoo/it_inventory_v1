@@ -29,33 +29,33 @@ export default function LaptopTable() {
     const LAPTOPS = useSelector(LAPTOPS_SELECTOR);
     const items = ["BOP1", "BOP2"];
     //////////////////////////////////////////LAPTOPS ROWS & HEADER///////////////////////////////////////////////////////////
-    const laptopRows = [
-      {
-        id: "a",
-        userName: LAPTOPS[0].USERNAME,
-        SSO: LAPTOPS[0].SSO,
-        Department: LAPTOPS[0].DEPARTMENT,
-        Brand: LAPTOPS[0].BRAND,
-        Model: LAPTOPS[0].MODEL,
-        SerialNumber: LAPTOPS[0].SERIAL_NUMBER,
-      },
-      {
-        id: "b",
-        userName: LAPTOPS[1].USERNAME,
-        SSO: LAPTOPS[1].SSO,
-        Department: LAPTOPS[1].DEPARTMENT,
-        Brand: LAPTOPS[1].BRAND,
-        Model: LAPTOPS[1].MODEL,
-        SerialNumber: LAPTOPS[1].SERIAL_NUMBER,
-      },
-    ];
+    // const laptopRows = [
+    //   {
+    //     id: "a",
+    //     userName: LAPTOPS[0].USERNAME,
+    //     SSO: LAPTOPS[0].SSO,
+    //     Department: LAPTOPS[0].DEPARTMENT,
+    //     Brand: LAPTOPS[0].BRAND,
+    //     Model: LAPTOPS[0].MODEL,
+    //     SerialNumber: LAPTOPS[0].SERIAL_NUMBER,
+    //   },
+    //   {
+    //     id: "b",
+    //     userName: LAPTOPS[1].USERNAME,
+    //     SSO: LAPTOPS[1].SSO,
+    //     Department: LAPTOPS[1].DEPARTMENT,
+    //     Brand: LAPTOPS[1].BRAND,
+    //     Model: LAPTOPS[1].MODEL,
+    //     SerialNumber: LAPTOPS[1].SERIAL_NUMBER,
+    //   },
+    // ];
     const laptopHeaders = [
       {
-        key: "userName",
+        key: "UserName",
         header: "User Name",
       },
       {
-        key: "SSO",
+        key: "sso",
         header: "SSO",
       },
       {
@@ -75,12 +75,12 @@ export default function LaptopTable() {
         header: "Serial Number",
       },
     ];
-  
+  console.log(LAPTOPS)
     return (
       ///////////////////////////////LAPTOP TABLE/////////////////////////////////////////////////////////
       <Styled.LaptopTable>
         <DataTable
-          rows={laptopRows}
+          rows={LAPTOPS}
           headers={laptopHeaders}
           render={({
             rows,

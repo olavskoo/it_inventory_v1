@@ -19,6 +19,7 @@ border: 2px solid transparent;
     background-color: transparent;
     border-radius: 2em;
     margin-right: .5em;
+    
 }
 & .cds--data-table-header{
     border-top-left-radius: 20px;
