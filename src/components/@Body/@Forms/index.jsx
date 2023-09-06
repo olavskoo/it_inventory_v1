@@ -16,9 +16,10 @@ const brandItems=["DELL","HP","Apple"]
 const siteItems=["BOP1","BOP2"]
 const dispatch = useDispatch();
 
+
   return(<>
   <Formik
-  initialValues={{UserName: '', sso: '', Department: '', Brand: '', SerialNumber: '', Site: ''}}
+  initialValues={{id: '', UserName: '', sso: '', Department: '', Brand: '', SerialNumber: '', Site: ''}}
   onSubmit={(values, {setSubmitting})=>{
     dispatch(DATA_ACTIONS.addLaptop(values))
   }}
@@ -36,6 +37,15 @@ const dispatch = useDispatch();
        }) => (
       <Form onSubmit={handleSubmit}>
         <Stack gap={7}>
+        <TextInput
+            helperText="Only enter one name and one surname"
+            id="id"
+            invalidText="Invalid error message."
+            labelText="User"
+            placeholder="Name Surname"
+            onChange={handleChange}
+            value={values.id}
+          />
         <TextInput
             helperText="Only enter one name and one surname"
             id="UserName"

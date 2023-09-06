@@ -75,10 +75,10 @@ export default function LaptopTable() {
         header: "Serial Number",
       },
     ];
-  console.log(LAPTOPS)
     return (
       ///////////////////////////////LAPTOP TABLE/////////////////////////////////////////////////////////
       <Styled.LaptopTable>
+      {console.log(LAPTOPS)}
         <DataTable
           rows={LAPTOPS}
           headers={laptopHeaders}
