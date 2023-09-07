@@ -28,6 +28,7 @@ import { LaptopForm, Modal } from "../../@Forms";
 export default function LaptopTable() {
     const LAPTOPS = useSelector(LAPTOPS_SELECTOR);
     const items = ["BOP1", "BOP2"];
+    const dispatch = useDispatch()
     //////////////////////////////////////////LAPTOPS ROWS & HEADER///////////////////////////////////////////////////////////
     // const laptopRows = [
     //   {
@@ -78,7 +79,6 @@ export default function LaptopTable() {
     return (
       ///////////////////////////////LAPTOP TABLE/////////////////////////////////////////////////////////
       <Styled.LaptopTable>
-      {console.log(LAPTOPS)}
         <DataTable
           rows={LAPTOPS}
           headers={laptopHeaders}
@@ -118,7 +118,8 @@ export default function LaptopTable() {
                     tabIndex={
                       getBatchActionProps().shouldShowBatchActions ? 0 : -1
                     }
-                    onClick={() => console.log("clicked")}
+                    onClick={() => {
+                      dispatch(DATA_ACTIONS.deleteLaptop(selectedRows[0].id))}}
                   >
                     Delete
                   </TableBatchAction>
