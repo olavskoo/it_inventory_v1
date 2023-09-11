@@ -76,6 +76,8 @@ export default function LaptopTable() {
         header: "Serial Number",
       },
     ];
+    const preventSelection = (row) =>
+  row.values.status === 'RUNNING' ? { ...row, isSelectable: false } : row;
     return (
       ///////////////////////////////LAPTOP TABLE/////////////////////////////////////////////////////////
       <Styled.LaptopTable>
@@ -170,7 +172,7 @@ export default function LaptopTable() {
                 <TableBody>
                   {rows.map((row) => (
                     <TableRow {...getRowProps({ row })}>
-                      <TableSelectRow {...getSelectionProps({ row })} />
+                      <TableSelectRow  {...getSelectionProps({ row })} />
                       {row.cells.map((cell) => (
                         <TableCell key={cell.id}>{cell.value}</TableCell>
                       ))}
