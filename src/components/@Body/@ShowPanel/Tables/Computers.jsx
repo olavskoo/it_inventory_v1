@@ -21,8 +21,9 @@ import {
   } from "@carbon/react";
 import { useDispatch, useSelector } from "react-redux";  
 import { DATA_ACTIONS, LAPTOPS_SELECTOR } from "../../../../store/DATA";
-import { LaptopForm, Modal } from "../../@Forms";
-
+import { LaptopForm } from "../../@Modal/Forms/computers";
+import { Modal } from "../../@Modal";
+import { EditModal } from "../../@Modal/EditForms";
 
 
 export default function LaptopTable() {
@@ -76,8 +77,6 @@ export default function LaptopTable() {
         header: "Serial Number",
       },
     ];
-    const preventSelection = (row) =>
-  row.values.status === 'RUNNING' ? { ...row, isSelectable: false } : row;
     return (
       ///////////////////////////////LAPTOP TABLE/////////////////////////////////////////////////////////
       <Styled.LaptopTable>
@@ -132,7 +131,7 @@ export default function LaptopTable() {
                     }
                     onClick={() => console.log("clicked")}
                   >
-                    Edit
+                    <EditModal/>
                   </TableBatchAction>
                   <TableBatchAction
                     className="ActionButton"
@@ -186,3 +185,8 @@ export default function LaptopTable() {
       </Styled.LaptopTable>
     );
   }
+
+export function test(SelectedId){
+
+  return SelectedId
+} 

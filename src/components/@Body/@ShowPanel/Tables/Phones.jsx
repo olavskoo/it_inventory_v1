@@ -19,8 +19,8 @@ import {
     TableSelectRow,
     TableSelectAll,
   } from "@carbon/react";
-import { LaptopForm, Modal } from "../../@Forms";
-
+import { LaptopForm} from "../../@Modal/Forms/computers";
+import { Modal } from "../../@Modal";
 
 export default function PhoneTable() {
     const items = ["BOP1", "BOP2"];
