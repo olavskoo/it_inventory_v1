@@ -1,3 +1,4 @@
 export const initialState = {
-    TABLE: "Laptop"
+    TABLE: "Laptop",
+    ITEM: []
 }

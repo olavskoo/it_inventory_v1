@@ -1,7 +1,7 @@
 export const restoreSlice = () => {}
 // laptops
 export const setLaptops = (state, action) => ({...state, LAPTOPS:action.payload})
-export const addLaptop = (state, action) => ({...state, LAPTOPS:[action.payload,...state.LAPTOPS]})
+export const addLaptop = (state, action) => ({...state, LAPTOPS:[...state.LAPTOPS, action.payload]})
 export const deleteLaptop = (state, action) => ({...state, LAPTOPS: state.LAPTOPS.filter(laptop=>laptop.id !== action.payload)})
 // TODO:TAREA
 export const editLaptop = (state, action) => {

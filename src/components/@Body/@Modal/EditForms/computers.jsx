@@ -1,9 +1,12 @@
 import React from "react";
 import { DATA_ACTIONS } from "../../../../store/DATA";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Form, Stack, TextInput, Button, Dropdown} from "@carbon/react";
 import { Formik } from "formik";
 import { LAPTOPS_SELECTOR } from "../../../../store/DATA";
+import { ITEM_SELECTOR } from "../../../../store/LOCAL_DATA";
+
 
 export default function EditLaptopForm(){
 
@@ -11,19 +14,24 @@ export default function EditLaptopForm(){
     const brandItems=["DELL","HP","Apple"]
     const siteItems=["BOP1","BOP2"]
     const dispatch = useDispatch();
-    const LAPTOPS = useSelector(LAPTOPS_SELECTOR)
-    
-    
-      return(<>
-      <Formik
-      initialValues={{id: LAPTOPS[0].id, newUserName: '', newsso: '', newDepartment: '', newBrand: '', newModel: '', newSerialNumber: '', newSite: ''}}
+    const ITEM = useSelector(ITEM_SELECTOR)
+    const LAPTOP = useSelector(LAPTOPS_SELECTOR)
+console.log(LAPTOP.filter(item=> item.id === ITEM)[0]);
+    // useEffect(()=>{
+
+      
+
+    // });
+   
+      return LAPTOP.filter(item=> item.id === ITEM).length > 0 ? <Formik
+      initialValues={{newUserName: LAPTOP.filter(item=> item.id === ITEM)[0].UserName, newsso: '', newDepartment: '', newBrand: '', newModel: '', newSerialNumber: '', newSite: ''}}
       onSubmit={(values, {setSubmitting})=>{
-        // dispatch(DATA_ACTIONS.editLaptop(values))
-        console.log(LAPTOPS[0].id)
+        values.id = ITEM;
+        dispatch(DATA_ACTIONS.editLaptop(values))
       }}
       >
          {({
-             values:Editedvalues,
+             values,
              errors,
              touched,
              handleChange,
@@ -42,8 +50,8 @@ export default function EditLaptopForm(){
                 labelText="User"
                 placeholder="Only enter one name and one surname"
                 onChange={handleChange}
-                value={Editedvalues?.newUserName}
-                defaultValue={LAPTOPS.UserName}
+                value={values.newUserName}
+                
               />
               <TextInput
                 id="sso"
@@ -51,7 +59,7 @@ export default function EditLaptopForm(){
                 invalidText="Invalid error message."
                 labelText="SSO"
                 placeholder="Enter SSO Example: 123456789"
-                value={Editedvalues?.newsso}
+                value={values.newsso}
                 onChange={handleChange}
               />
               <Dropdown
@@ -60,7 +68,7 @@ export default function EditLaptopForm(){
               titleText="Department"
               label="Select Department"
               items={departmentItems}
-              value={Editedvalues?.newDepartment}
+              value={values.newDepartment}
               onChange={(value)=>{setFieldValue( "Department", value.selectedItem ) }}
               />
               <Dropdown
@@ -69,7 +77,7 @@ export default function EditLaptopForm(){
               titleText="Brand"
               label="Select Brand"
               items={brandItems}
-              value={Editedvalues?.newBrand}
+              value={values.newBrand}
               onChange={(value)=>{setFieldValue( "Brand", value.selectedItem ) }}
               />
                <TextInput
@@ -78,7 +86,7 @@ export default function EditLaptopForm(){
                 invalidText="Invalid error message."
                 labelText="Model"
                 placeholder="Enter the Model"
-                value={Editedvalues?.newModel}
+                value={values.newModel}
                 onChange={handleChange}
               />
               <TextInput
@@ -87,7 +95,7 @@ export default function EditLaptopForm(){
                 invalidText="Invalid error message."
                 labelText="Serial Number"
                 placeholder="Enter Serial Number"
-                value={Editedvalues?.newSerialNumber}
+                value={values.newSerialNumber}
                 onChange={handleChange}
               />
                <Dropdown
@@ -97,7 +105,7 @@ export default function EditLaptopForm(){
               labelText="Site"
               label="Select Site"
               items={siteItems}
-              value={Editedvalues?.newSite}
+              value={values.newSite}
               onChange={(value)=>{setFieldValue( "Site", value.selectedItem ) }}
               />
             </Stack>
@@ -106,6 +114,5 @@ export default function EditLaptopForm(){
                </Button>
           </Form>
            )}
-          </Formik>
-      </>);
+          </Formik>: null
 }

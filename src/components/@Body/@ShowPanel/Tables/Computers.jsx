@@ -21,9 +21,9 @@ import {
   } from "@carbon/react";
 import { useDispatch, useSelector } from "react-redux";  
 import { DATA_ACTIONS, LAPTOPS_SELECTOR } from "../../../../store/DATA";
-import { LaptopForm } from "../../@Modal/Forms/computers";
 import { Modal } from "../../@Modal";
 import { EditModal } from "../../@Modal/EditForms";
+import { LOCAL_DATA_ACTIONS } from "../../../../store/LOCAL_DATA";
 
 
 export default function LaptopTable() {
@@ -129,7 +129,7 @@ export default function LaptopTable() {
                     tabIndex={
                       getBatchActionProps().shouldShowBatchActions ? 0 : -1
                     }
-                    onClick={() => console.log("clicked")}
+                    onClick={() => {dispatch(DATA_ACTIONS.setItem(selectedRows[0].id))}}
                   >
                     <EditModal/>
                   </TableBatchAction>
@@ -169,7 +169,7 @@ export default function LaptopTable() {
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {rows.map((row) => (
+                  {rows.map((row) => ( 
                     <TableRow {...getRowProps({ row })}>
                       <TableSelectRow  {...getSelectionProps({ row })} />
                       {row.cells.map((cell) => (
