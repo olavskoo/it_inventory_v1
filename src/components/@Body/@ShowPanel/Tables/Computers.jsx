@@ -10,20 +10,20 @@ import {
     TableCell,
     TableToolbar,
     TableToolbarSearch,
-    Button,
     TableToolbarContent,
     TableContainer,
     Dropdown,
     TableBatchAction,
     TableBatchActions,
-    TableSelectRow,
-    TableSelectAll,
+    OverflowMenu,
+    OverflowMenuItem,
   } from "@carbon/react";
-import { useDispatch, useSelector } from "react-redux";  
+import { shallowEqual, useDispatch, useSelector } from "react-redux";  
 import { DATA_ACTIONS, LAPTOPS_SELECTOR } from "../../../../store/DATA";
 import { Modal } from "../../@Modal";
+import { LOCAL_DATA_ACTIONS} from "../../../../store/LOCAL_DATA";
+import { SHOW_MODAL_SELECTOR } from "../../../../store/LOCAL_DATA";
 import { EditModal } from "../../@Modal/EditForms";
-import { LOCAL_DATA_ACTIONS } from "../../../../store/LOCAL_DATA";
 
 
 export default function LaptopTable() {
@@ -77,6 +77,7 @@ export default function LaptopTable() {
         header: "Serial Number",
       },
     ];
+
     return (
       ///////////////////////////////LAPTOP TABLE/////////////////////////////////////////////////////////
       <Styled.LaptopTable>
@@ -88,10 +89,8 @@ export default function LaptopTable() {
             headers,
             getHeaderProps,
             getRowProps,
-            getSelectionProps,
             getBatchActionProps,
             onInputChange,
-            selectedRows,
           }) => (
             <TableContainer title="Computers">
               <div
@@ -108,42 +107,10 @@ export default function LaptopTable() {
                   initialSelectedItem={items[0]}
                   style={{ width: "15%", height: "100%" }}
                 />
-                <Modal />
+                <Modal/>
+                <EditModal/>
               </div>
               <TableToolbar style={{ display: "flex", alignItems: "flexEnd" }}>
-                {/* pass in `onInputChange` change here to make filtering work */}
-  
-                <TableBatchActions {...getBatchActionProps()}>
-                  <TableBatchAction
-                    className="ActionButton"
-                    tabIndex={
-                      getBatchActionProps().shouldShowBatchActions ? 0 : -1
-                    }
-                    onClick={() => {
-                      dispatch(DATA_ACTIONS.deleteLaptop(selectedRows[0].id))}}
-                  >
-                    Delete
-                  </TableBatchAction>
-                  <TableBatchAction
-                    className="ActionButton"
-                    tabIndex={
-                      getBatchActionProps().shouldShowBatchActions ? 0 : -1
-                    }
-                    onClick={() => {dispatch(DATA_ACTIONS.setItem(selectedRows[0].id))}}
-                  >
-                    <EditModal/>
-                  </TableBatchAction>
-                  <TableBatchAction
-                    className="ActionButton"
-                    tabIndex={
-                      getBatchActionProps().shouldShowBatchActions ? 0 : -1
-                    }
-                    onClick={() => console.log("clicked")}
-                  >
-                    Download
-                  </TableBatchAction>
-                </TableBatchActions>
-  
                 <TableToolbarContent>
                   <TableToolbarSearch
                     onChange={onInputChange}
@@ -152,15 +119,11 @@ export default function LaptopTable() {
                     }
                   />
   
-                  {/* <Button kind="ghost" style={{borderRadius: "2em", marginRight: '.5em'}}>
-               <i class="fa-solid fa-user-plus" style={{color: "#ffffff"}}></i>
-            </Button>  */}
                 </TableToolbarContent>
               </TableToolbar>
               <Table>
                 <TableHead>
                   <TableRow>
-                    <div></div>
                     {headers.map((header) => (
                       <TableHeader {...getHeaderProps({ header })}>
                         {header.header}
@@ -169,15 +132,24 @@ export default function LaptopTable() {
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {rows.map((row) => ( 
-                    <TableRow {...getRowProps({ row })}>
-                      <TableSelectRow  {...getSelectionProps({ row })} />
-                      {row.cells.map((cell) => (
-                        <TableCell key={cell.id}>{cell.value}</TableCell>
-                      ))}
-                    </TableRow>
-                  ))}
-                </TableBody>
+  {rows.map((row) => (
+    <TableRow key={row.id} {...getRowProps({ row })}>
+      {row.cells.map((cell) => (
+        <TableCell key={cell.id}>{cell.value}</TableCell>
+      ))}
+      <TableCell className="cds--table-column-menu">
+        <OverflowMenu style={{backgroundColor: "transparent"}} size="sm" flipped>
+          <OverflowMenuItem itemText="Download"></OverflowMenuItem>
+          <OverflowMenuItem itemText="Edit" onClick={()=>{
+             dispatch(LOCAL_DATA_ACTIONS.SetItem(row.id))
+            dispatch(LOCAL_DATA_ACTIONS.SetShowModal(true)
+            )}}></OverflowMenuItem>
+          <OverflowMenuItem hasDivider itemText="Delete" isDelete onClick={()=>dispatch(DATA_ACTIONS.deleteLaptop(row.id))}></OverflowMenuItem>
+        </OverflowMenu>
+      </TableCell>
+    </TableRow>
+  ))}
+</TableBody>
               </Table>
             </TableContainer>
           )}

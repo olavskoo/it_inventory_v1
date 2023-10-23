@@ -7,6 +7,7 @@ import { Button, ModalHeader, ComposedModal, ModalBody } from "@carbon/react";
 import LaptopForm from "./Forms/computers";
 
 
+
 export function Modal(){
   const TableName = useSelector(TABLE_SELECTOR);
   const button = useRef();
@@ -29,8 +30,9 @@ export function Modal(){
   return <ModalStateManager renderLauncher={({
     setOpen
   }) => <Button ref={button} onClick={() => setOpen(true)}>
-          Launch composed modal
-</Button>}>
+              <i class="fa-solid fa-user-plus"></i>
+            </Button>
+}>
       {({
       open,
       setOpen

@@ -6,6 +6,7 @@ import { Form, Stack, TextInput, Button, Dropdown} from "@carbon/react";
 import { Formik } from "formik";
 import { LAPTOPS_SELECTOR } from "../../../../store/DATA";
 import { ITEM_SELECTOR } from "../../../../store/LOCAL_DATA";
+import { LOCAL_DATA_ACTIONS } from "../../../../store/LOCAL_DATA";
 
 
 export default function EditLaptopForm(){
@@ -24,10 +25,17 @@ console.log(LAPTOP.filter(item=> item.id === ITEM)[0]);
     // });
    
       return LAPTOP.filter(item=> item.id === ITEM).length > 0 ? <Formik
-      initialValues={{newUserName: LAPTOP.filter(item=> item.id === ITEM)[0].UserName, newsso: '', newDepartment: '', newBrand: '', newModel: '', newSerialNumber: '', newSite: ''}}
+      initialValues={{newUserName: LAPTOP.filter(item=> item.id === ITEM)[0].UserName, 
+        newsso: LAPTOP.filter(item=> item.id === ITEM)[0].sso, 
+        newDepartment: LAPTOP.filter(item=> item.id === ITEM)[0].Department, 
+        newBrand: LAPTOP.filter(item=> item.id === ITEM)[0].Brand, 
+        newModel: LAPTOP.filter(item=> item.id === ITEM)[0].Model, 
+        newSerialNumber: LAPTOP.filter(item=> item.id === ITEM)[0].SerialNumber, 
+        newSite: LAPTOP.filter(item=> item.id === ITEM)[0].Site}}
       onSubmit={(values, {setSubmitting})=>{
         values.id = ITEM;
         dispatch(DATA_ACTIONS.editLaptop(values))
+        dispatch(LOCAL_DATA_ACTIONS.SetShowModal(false))
       }}
       >
          {({
@@ -69,7 +77,7 @@ console.log(LAPTOP.filter(item=> item.id === ITEM)[0]);
               label="Select Department"
               items={departmentItems}
               value={values.newDepartment}
-              onChange={(value)=>{setFieldValue( "Department", value.selectedItem ) }}
+              onChange={(value)=>{setFieldValue( "newDepartment", value.selectedItem ) }}
               />
               <Dropdown
               id="Brand"
@@ -78,7 +86,7 @@ console.log(LAPTOP.filter(item=> item.id === ITEM)[0]);
               label="Select Brand"
               items={brandItems}
               value={values.newBrand}
-              onChange={(value)=>{setFieldValue( "Brand", value.selectedItem ) }}
+              onChange={(value)=>{setFieldValue( "newBrand", value.selectedItem ) }}
               />
                <TextInput
                 id="Model"
@@ -106,7 +114,7 @@ console.log(LAPTOP.filter(item=> item.id === ITEM)[0]);
               label="Select Site"
               items={siteItems}
               value={values.newSite}
-              onChange={(value)=>{setFieldValue( "Site", value.selectedItem ) }}
+              onChange={(value)=>{setFieldValue( "newSite", value.selectedItem ) }}
               />
             </Stack>
             <Button type="submit" disabled={isSubmitting}>

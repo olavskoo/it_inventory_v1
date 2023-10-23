@@ -7,3 +7,7 @@ export const SetTable = (state, action) => {
 export const SetItem = (state, action) => {
     state.ITEM = action.payload
 }
+
+export const SetShowModal = (state, action) => {
+    state.SHOW_MODAL = action.payload
+}
