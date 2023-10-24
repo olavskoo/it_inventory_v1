@@ -5,6 +5,7 @@ import { useState, useRef } from "react";
 import { TABLE_SELECTOR } from "../../../store/LOCAL_DATA";
 import { Button, ModalHeader, ComposedModal, ModalBody } from "@carbon/react";
 import LaptopForm from "./Forms/computers";
+import ScannerForm from "./Forms/scanners";
 
 
 
@@ -30,7 +31,8 @@ export function Modal(){
   return <ModalStateManager renderLauncher={({
     setOpen
   }) => <Button ref={button} onClick={() => setOpen(true)}>
-              <i class="fa-solid fa-user-plus"></i>
+            {TableName === "Laptop" && <><div style={{color: "#6400A0"}}>...........</div><i class="fa-solid fa-plus"></i><div style={{color: "#6400A0"}}>.</div><i class="fa-solid fa-laptop"></i></>}
+            {TableName === "Scanner" && <><div style={{color: "#6400A0"}}>...........</div><i class="fa-solid fa-plus"></i><div style={{color: "#6400A0"}}>..</div><i class="fa-solid fa-mobile-retro"></i></>}
             </Button>
 }>
       {({
@@ -39,9 +41,10 @@ export function Modal(){
     }) => <ComposedModal open={open} onClose={() => {
       setOpen(false);
     }} launcherButtonRef={button}>
-<ModalHeader title={TableName === "Printer" ? "Printer Form" : TableName === "Phone" ?  "Phone Form" : "Computer Form"}/>
+<ModalHeader title={TableName === "Printer" ? "Printer Form" : TableName === "Phone" ?  "Phone Form" : TableName === "Scanner" ?  "Scanner Form" : "Computer Form"}/>
 <ModalBody>
       {TableName === "Laptop" && <LaptopForm />}
+      {TableName === "Scanner" && <ScannerForm />}
       {/* {TableName === "Printer" && <PrinterForm />}
       {TableName === "Phone" && <PhoneForm />} */}
 </ModalBody>

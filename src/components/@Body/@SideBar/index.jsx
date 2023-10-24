@@ -24,6 +24,10 @@ export default function SideBar(){
                 <Styled.LinksIcon><i class="fa-solid fa-print"></i></Styled.LinksIcon>
                 <Styled.LinksText>Printers</Styled.LinksText>
             </Styled.LinksContent>
+            <Styled.LinksContent onClick={()=>dispatch(LOCAL_DATA_ACTIONS.SetTable("Scanner"))}>
+                <Styled.LinksIcon><i class="fa-solid fa-barcode"></i></Styled.LinksIcon>
+                <Styled.LinksText>Scanners</Styled.LinksText>
+            </Styled.LinksContent>
           </Styled.LinksContainer>
             <Styled.Version>Version 1.0</Styled.Version>
         </Styled.MainContainer>

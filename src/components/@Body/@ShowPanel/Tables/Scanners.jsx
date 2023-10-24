@@ -17,18 +17,18 @@ import {
     OverflowMenuItem,
   } from "@carbon/react";
 import { useDispatch, useSelector } from "react-redux";  
-import { DATA_ACTIONS, LAPTOPS_SELECTOR } from "../../../../store/DATA";
+import { DATA_ACTIONS, SCANNERS_SELECTOR } from "../../../../store/DATA";
 import { Modal } from "../../@Modal";
 import { LOCAL_DATA_ACTIONS} from "../../../../store/LOCAL_DATA";
 import { EditModal } from "../../@Modal/EditForms";
 
 
-export default function LaptopTable() {
-    const LAPTOPS = useSelector(LAPTOPS_SELECTOR);
+export default function ScannerTable() {
+    const SCANNER = useSelector(SCANNERS_SELECTOR);
     const items = ["BOP1", "BOP2"];
     const dispatch = useDispatch()
 
-    const laptopHeaders = [
+    const scannerHeaders = [
       {
         key: "UserName",
         header: "User Name",
@@ -59,8 +59,8 @@ export default function LaptopTable() {
       ///////////////////////////////LAPTOP TABLE/////////////////////////////////////////////////////////
       <Styled.LaptopTable>
         <DataTable
-          rows={LAPTOPS}
-          headers={laptopHeaders}
+          rows={SCANNER}
+          headers={scannerHeaders}
           render={({
             rows,
             headers,
@@ -69,7 +69,7 @@ export default function LaptopTable() {
             getBatchActionProps,
             onInputChange,
           }) => (
-            <TableContainer title="Computers">
+            <TableContainer title="Scanners">
               <div
                 style={{
                   display: "flex",
@@ -121,7 +121,7 @@ export default function LaptopTable() {
              dispatch(LOCAL_DATA_ACTIONS.SetItem(row.id))
             dispatch(LOCAL_DATA_ACTIONS.SetShowModal(true)
             )}}></OverflowMenuItem>
-          <OverflowMenuItem hasDivider itemText="Delete" isDelete onClick={()=>dispatch(DATA_ACTIONS.deleteLaptop(row.id))}></OverflowMenuItem>
+          <OverflowMenuItem hasDivider itemText="Delete" isDelete onClick={()=>dispatch(DATA_ACTIONS.deleteScanner(row.id))}></OverflowMenuItem>
         </OverflowMenu>
       </TableCell>
     </TableRow>

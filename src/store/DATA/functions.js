@@ -1,9 +1,10 @@
 export const restoreSlice = () => {}
-// laptops
+
+
+//////////////////////////////////////////////////////// LAPTOPS//////////////////////////////////////////////////////////////////////
 export const setLaptops = (state, action) => ({...state, LAPTOPS:action.payload})
 export const addLaptop = (state, action) => ({...state, LAPTOPS:[...state.LAPTOPS, action.payload]})
 export const deleteLaptop = (state, action) => ({...state, LAPTOPS: state.LAPTOPS.filter(laptop=>laptop.id !== action.payload)})
-// TODO:TAREA
 export const editLaptop = (state, action) => {
  const {id, newUserName, newsso, newDepartment, newBrand, newModel, newSerialNumber, newSite} = action.payload
 console.log(state, action)
@@ -19,3 +20,22 @@ console.log(state, action)
  }
 }
 
+
+//////////////////////////////////////////////////////// SCANNERS //////////////////////////////////////////////////////////////////////
+export const setScanners = (state, action) => ({...state, SCANNERS:action.payload})
+export const addScanner = (state, action) => ({...state, SCANNERS:[...state.SCANNERS, action.payload]})
+export const deleteScanner = (state, action) => ({...state, SCANNERS: state.SCANNERS.filter(scanner=>scanner.id != action.payload)})
+export const editScanner = (state, action) => {
+  const {id, newUserName, newsso, newDepartment, newBrand, newModel, newSerialNumber, newSite} = action.payload
+  console.log(state, action)
+   const scannerToEdit = state.SCANNERS.findIndex(scanner=> scanner.id === id);
+   if(scannerToEdit > -1 ){
+     state.SCANNERS[scannerToEdit].UserName = newUserName;
+     state.SCANNERS[scannerToEdit].sso = newsso;
+     state.SCANNERS[scannerToEdit].Department = newDepartment;
+     state.SCANNERS[scannerToEdit].Brand = newBrand;
+     state.SCANNERS[scannerToEdit].Model = newModel;
+     state.SCANNERS[scannerToEdit].SerialNumber = newSerialNumber;
+     state.SCANNERS[scannerToEdit].Site = newSite;
+   }
+}

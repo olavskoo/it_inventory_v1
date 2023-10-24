@@ -4,6 +4,7 @@ import { TABLE_SELECTOR } from "../../../store/LOCAL_DATA";
 import LaptopTable from "./Tables/Computers";
 import PhoneTable from "./Tables/Phones";
 import PrinterTable from "./Tables/Printers";
+import ScannerTable from "./Tables/Scanners";
 
 
 export default function ShowPanel(propa) {
@@ -14,6 +15,7 @@ export default function ShowPanel(propa) {
       {TableName === "Laptop" && <LaptopTable />}
       {TableName === "Printer" && <PrinterTable />}
       {TableName === "Phone" && <PhoneTable />}
+      {TableName === "Scanner" && <ScannerTable />}
     </>
   );
 }

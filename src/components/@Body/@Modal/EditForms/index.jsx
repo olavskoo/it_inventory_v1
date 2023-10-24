@@ -5,6 +5,7 @@ import { useState, useRef } from "react";
 import LOCAL_DATA, { TABLE_SELECTOR, SHOW_MODAL_SELECTOR, LOCAL_DATA_ACTIONS } from "../../../../store/LOCAL_DATA";
 import { Button, ModalHeader, ComposedModal, ModalBody } from "@carbon/react";
 import EditLaptopForm from "./computers";
+import EditScannerForm from "./scanners";
 import { useDispatch } from "react-redux";
 
 
@@ -41,6 +42,7 @@ export function EditModal(){
 <ModalHeader title={TableName === "Printer" ? "Printer Form" : TableName === "Phone" ?  "Phone Form" : "Computer Form"}/>
 <ModalBody>
       {TableName === "Laptop" && <EditLaptopForm />}
+      {TableName === "Scanner" && <EditScannerForm />}
       {/* {TableName === "Printer" && <PrinterForm />}
       {TableName === "Phone" && <PhoneForm />} */}
 </ModalBody>
