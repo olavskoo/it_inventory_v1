@@ -30,7 +30,7 @@ console.log(PHONE.filter(item=> item.id === ITEM)[0]);
         newDepartment: PHONE.filter(item=> item.id === ITEM)[0].Department, 
         newBrand: PHONE.filter(item=> item.id === ITEM)[0].Brand, 
         newModel: PHONE.filter(item=> item.id === ITEM)[0].Model, 
-        newSerialNumber: PHONE.filter(item=> item.id === ITEM)[0].SerialNumber, 
+        newImei: PHONE.filter(item=> item.id === ITEM)[0].Imei, 
         newSite: PHONE.filter(item=> item.id === ITEM)[0].Site}}
       onSubmit={(values, {setSubmitting})=>{
         values.id = ITEM;

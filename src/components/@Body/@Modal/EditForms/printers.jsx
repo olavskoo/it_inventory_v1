@@ -49,7 +49,7 @@ console.log(PRINTER.filter(item=> item.id === ITEM)[0]);
           <Form onSubmit={handleSubmit}>
             <Stack gap={7}>
             <TextInput
-                id="Name"
+                id="newName"
                 invalidText="Invalid error message."
                 labelText="Printer Name"
                 placeholder="Enter printer name"
@@ -57,7 +57,7 @@ console.log(PRINTER.filter(item=> item.id === ITEM)[0]);
                 value={values.newName}
               />
               <TextInput
-                id="AssetNumber"
+                id="newAssetNumber"
                 invalidText="Invalid error message."
                 labelText="Asset Number"
                 placeholder="Enter Asset Number Example: Z-123"
@@ -65,7 +65,7 @@ console.log(PRINTER.filter(item=> item.id === ITEM)[0]);
                 onChange={handleChange}
               />
               <TextInput
-                id="SerialNumber"
+                id="newSerialNumber"
                 invalidText="Invalid error message."
                 labelText="Serial Number"
                 placeholder="Enter Serial Number Example: 71J123"
@@ -73,7 +73,7 @@ console.log(PRINTER.filter(item=> item.id === ITEM)[0]);
                 onChange={handleChange}
               />
               <Dropdown
-              id="Brand"
+              id="newBrand"
               titleText="Brand"
               label="Select Brand"
               items={brandItems}
@@ -82,7 +82,7 @@ console.log(PRINTER.filter(item=> item.id === ITEM)[0]);
               />
                <TextInput
                 helperText="Enter the Model"
-                id="Model"
+                id="newModel"
                 invalidText="Invalid error message."
                 labelText="Model"
                 placeholder="Enter the Model"
@@ -91,7 +91,7 @@ console.log(PRINTER.filter(item=> item.id === ITEM)[0]);
               />
               <TextInput
                 helperText="Enter the IP of the printer"
-                id="Ip"
+                id="newIp"
                 invalidText="Invalid error message."
                 labelText="IP"
                 placeholder="Enter IP"
@@ -100,7 +100,7 @@ console.log(PRINTER.filter(item=> item.id === ITEM)[0]);
               />
               <TextInput
                 helperText="Enter the Area of the printer"
-                id="Area"
+                id="newArea"
                 invalidText="Invalid error message."
                 labelText="Area"
                 placeholder="Where is the printer located?"
@@ -108,7 +108,7 @@ console.log(PRINTER.filter(item=> item.id === ITEM)[0]);
                 onChange={handleChange}
               />
             <Dropdown
-              id="Site"
+              id="newSite"
               titleText="Site"
               labelText="Site"
               label="Select Site"
