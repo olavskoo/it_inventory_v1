@@ -16,7 +16,7 @@ export default function SideBar(){
                 <Styled.LinksIcon><i class="fa-solid fa-laptop"></i></Styled.LinksIcon>
                 <Styled.LinksText>Computer</Styled.LinksText>
             </Styled.LinksContent>
-                <Styled.LinksContent onClick={()=>dispatch(LOCAL_DATA_ACTIONS.SetTable("Phone"))}>
+            <Styled.LinksContent onClick={()=>dispatch(LOCAL_DATA_ACTIONS.SetTable("Phones"))}>
                 <Styled.LinksIcon><i class="fa-solid fa-mobile-screen-button"></i></Styled.LinksIcon>
                 <Styled.LinksText>Phones</Styled.LinksText>
             </Styled.LinksContent>

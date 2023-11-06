@@ -7,6 +7,8 @@ import { Button, ModalHeader, ComposedModal, ModalBody } from "@carbon/react";
 import EditLaptopForm from "./computers";
 import EditScannerForm from "./scanners";
 import { useDispatch } from "react-redux";
+import EditPhoneForm from "./phones";
+import EditPrinterForm from "./printers";
 
 
 
@@ -43,8 +45,9 @@ export function EditModal(){
 <ModalBody>
       {TableName === "Laptop" && <EditLaptopForm />}
       {TableName === "Scanner" && <EditScannerForm />}
-      {/* {TableName === "Printer" && <PrinterForm />}
-      {TableName === "Phone" && <PhoneForm />} */}
+      {TableName === "Phones" && <EditPhoneForm />}
+      {TableName === "Printer" && <EditPrinterForm />}
+
 </ModalBody>
 
 </ComposedModal>}

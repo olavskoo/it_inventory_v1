@@ -21,10 +21,7 @@ export default function LaptopForm() {
       >
          {({
              values,
-             errors,
-             touched,
              handleChange,
-             handleBlur,
              handleSubmit,
              isSubmitting,
              setFieldValue

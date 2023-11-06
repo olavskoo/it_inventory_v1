@@ -10,33 +10,24 @@ import {
     TableCell,
     TableToolbar,
     TableToolbarSearch,
-    Button,
     TableToolbarContent,
     TableContainer,
     Dropdown,
-    TableBatchAction,
-    TableBatchActions,
-    TableSelectRow,
-    TableSelectAll,
+    OverflowMenu,
+    OverflowMenuItem,
   } from "@carbon/react";
-  import { LaptopForm } from "../../@Modal/Forms/computers";
-  import { Modal } from "../../@Modal";
+import { useDispatch, useSelector } from "react-redux";  
+import { DATA_ACTIONS, PRINTERS_SELECTOR } from "../../../../store/DATA";
+import { Modal } from "../../@Modal";
+import { LOCAL_DATA_ACTIONS} from "../../../../store/LOCAL_DATA";
+import { EditModal } from "../../@Modal/EditForms";
+
 
 export default function PrinterTable() {
+    const PRINTERS = useSelector(PRINTERS_SELECTOR);
     const items = ["BOP1", "BOP2"];
-    //////////////////////////////////////////PRINTER ROWS & HEADER///////////////////////////////////////////////////////////
-    const printerRows = [
-      {
-        id: "a",
-        Name: "Printer.Name",
-        AssetNumber: "printer.AssetNumber",
-        SerialNumber: "printer.SerialNumber",
-        Brand: "printer.Brand",
-        Model: "printer.Model",
-        IP: "printer.IP",
-        Area: "printer.Area",
-      },
-    ];
+    const dispatch = useDispatch()
+
     const printerHeaders = [
       {
         key: "Name",
@@ -59,7 +50,7 @@ export default function PrinterTable() {
         header: "Model",
       },
       {
-        key: "IP",
+        key: "Ip",
         header: "IP",
       },
       {
@@ -67,22 +58,20 @@ export default function PrinterTable() {
         header: "Area",
       },
     ];
-  
+
     return (
-      ///////////////////////////////PRINTER TABLE/////////////////////////////////////////////////
-      <Styled.PrinterTable>
+      ///////////////////////////////LAPTOP TABLE/////////////////////////////////////////////////////////
+      <Styled.LaptopTable>
         <DataTable
-          rows={printerRows}
+          rows={PRINTERS}
           headers={printerHeaders}
           render={({
             rows,
             headers,
             getHeaderProps,
             getRowProps,
-            getSelectionProps,
             getBatchActionProps,
             onInputChange,
-            selectedRows,
           }) => (
             <TableContainer title="Printers">
               <div
@@ -99,41 +88,10 @@ export default function PrinterTable() {
                   initialSelectedItem={items[0]}
                   style={{ width: "15%", height: "100%" }}
                 />
-                <Modal />
+                <Modal/>
+                <EditModal/>
               </div>
               <TableToolbar style={{ display: "flex", alignItems: "flexEnd" }}>
-                {/* pass in `onInputChange` change here to make filtering work */}
-  
-                <TableBatchActions {...getBatchActionProps()}>
-                  <TableBatchAction
-                    className="ActionButton"
-                    tabIndex={
-                      getBatchActionProps().shouldShowBatchActions ? 0 : -1
-                    }
-                    onClick={() => console.log("clicked")}
-                  >
-                    Delete
-                  </TableBatchAction>
-                  <TableBatchAction
-                    className="ActionButton"
-                    tabIndex={
-                      getBatchActionProps().shouldShowBatchActions ? 0 : -1
-                    }
-                    onClick={() => console.log("clicked")}
-                  >
-                    Edit
-                  </TableBatchAction>
-                  <TableBatchAction
-                    className="ActionButton"
-                    tabIndex={
-                      getBatchActionProps().shouldShowBatchActions ? 0 : -1
-                    }
-                    onClick={() => console.log("clicked")}
-                  >
-                    Download
-                  </TableBatchAction>
-                </TableBatchActions>
-  
                 <TableToolbarContent>
                   <TableToolbarSearch
                     onChange={onInputChange}
@@ -142,15 +100,11 @@ export default function PrinterTable() {
                     }
                   />
   
-                  {/* <Button kind="ghost" style={{borderRadius: "2em", marginRight: '.5em'}}>
-               <i class="fa-solid fa-user-plus" style={{color: "#ffffff"}}></i>
-            </Button>  */}
                 </TableToolbarContent>
               </TableToolbar>
               <Table>
                 <TableHead>
                   <TableRow>
-                    <div></div>
                     {headers.map((header) => (
                       <TableHeader {...getHeaderProps({ header })}>
                         {header.header}
@@ -159,20 +113,33 @@ export default function PrinterTable() {
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {rows.map((row) => (
-                    <TableRow {...getRowProps({ row })}>
-                      <TableSelectRow {...getSelectionProps({ row })} />
-                      {row.cells.map((cell) => (
-                        <TableCell key={cell.id}>{cell.value}</TableCell>
-                      ))}
-                    </TableRow>
-                  ))}
-                </TableBody>
+  {rows.map((row) => (
+    <TableRow key={row.id} {...getRowProps({ row })}>
+      {row.cells.map((cell) => (
+        <TableCell key={cell.id}>{cell.value}</TableCell>
+      ))}
+      <TableCell className="cds--table-column-menu">
+        <OverflowMenu style={{backgroundColor: "transparent"}} size="sm" flipped>
+          <OverflowMenuItem itemText="Download"></OverflowMenuItem>
+          <OverflowMenuItem itemText="Edit" onClick={()=>{
+             dispatch(LOCAL_DATA_ACTIONS.SetItem(row.id))
+            dispatch(LOCAL_DATA_ACTIONS.SetShowModal(true)
+            )}}></OverflowMenuItem>
+          <OverflowMenuItem hasDivider itemText="Delete" isDelete onClick={()=>dispatch(DATA_ACTIONS.deletePrinter(row.id))}></OverflowMenuItem>
+        </OverflowMenu>
+      </TableCell>
+    </TableRow>
+  ))}
+</TableBody>
               </Table>
             </TableContainer>
           )}
         />
-      </Styled.PrinterTable>
+      </Styled.LaptopTable>
     );
   }
-  
+
+export function test(SelectedId){
+
+  return SelectedId
+} 

@@ -17,8 +17,15 @@ export const DATA = createSlice({
         //scanner
         addScanner: functions.addScanner,
         deleteScanner: functions.deleteScanner,
-        editScanner: functions.editScanner
-
+        editScanner: functions.editScanner,
+        //Phones
+        addPhone: functions.addPhone,
+        deletePhone: functions.deletePhone,
+        editPhone: functions.editPhone, 
+        //Printers
+        addPrinter: functions.addPrinter,
+        deletePrinter: functions.deletePrinter,
+        editPrinter: functions.editPrinter, 
     }
 
 })
@@ -27,7 +34,7 @@ export const DATA_ACTIONS = DATA.actions;
 // selectors
 export const DATA_SELECTOR = (state) => state.DATA
 export const LAPTOPS_SELECTOR = (state) => state.DATA.LAPTOPS
-export const MOBILES_SELECTOR = (state) => state.DATA.MOBILES
+export const PHONES_SELECTOR = (state) => state.DATA.PHONES
 export const PRINTERS_SELECTOR = (state) => state.DATA.PRINTERS
 export const SCANNERS_SELECTOR = (state) => state.DATA.SCANNERS
 

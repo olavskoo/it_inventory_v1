@@ -1,6 +1,6 @@
 export const initialState  = {
     LAPTOPS: [],
-    MOBILES: [],
+    PHONES: [],
     PRINTERS: [],
     SCANNERS: []
 }
