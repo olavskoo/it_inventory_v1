@@ -45,7 +45,7 @@ console.log(SCANNER.filter(item=> item.id === ITEM)[0]);
              /* and other goodies */
            }) => (
           <Form onSubmit={handleSubmit}>
-            <Stack gap={7}>
+            <Stack gap={3}>
             <TextInput
                 id="UserName"
                 name="newUserName"
@@ -103,6 +103,7 @@ console.log(SCANNER.filter(item=> item.id === ITEM)[0]);
               />
                <Dropdown
               id="Site"
+              direction="top"
               name="newSite"
               titleText="Site"
               labelText="Site"
@@ -112,6 +113,10 @@ console.log(SCANNER.filter(item=> item.id === ITEM)[0]);
               onChange={(value)=>{setFieldValue( "newSite", value.selectedItem ) }}
               />
             </Stack>
+            <div style={{color: "#f4f4f4"}}>a</div>
+            <Button style={{backgroundColor: "#0e0e52"}} onClick={()=> dispatch(LOCAL_DATA_ACTIONS.SetShowModal(false))}>
+                 Cancel
+               </Button>
             <Button type="submit" disabled={isSubmitting}>
                  Submit
                </Button>

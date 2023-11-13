@@ -47,7 +47,7 @@ console.log(PRINTER.filter(item=> item.id === ITEM)[0]);
              /* and other goodies */
            }) => (
           <Form onSubmit={handleSubmit}>
-            <Stack gap={7}>
+            <Stack gap={2}>
             <TextInput
                 id="newName"
                 invalidText="Invalid error message."
@@ -81,7 +81,6 @@ console.log(PRINTER.filter(item=> item.id === ITEM)[0]);
               onChange={(value)=>{setFieldValue( "newBrand", value.selectedItem ) }}
               />
                <TextInput
-                helperText="Enter the Model"
                 id="newModel"
                 invalidText="Invalid error message."
                 labelText="Model"
@@ -90,7 +89,6 @@ console.log(PRINTER.filter(item=> item.id === ITEM)[0]);
                 onChange={handleChange}
               />
               <TextInput
-                helperText="Enter the IP of the printer"
                 id="newIp"
                 invalidText="Invalid error message."
                 labelText="IP"
@@ -99,7 +97,6 @@ console.log(PRINTER.filter(item=> item.id === ITEM)[0]);
                 onChange={handleChange}
               />
               <TextInput
-                helperText="Enter the Area of the printer"
                 id="newArea"
                 invalidText="Invalid error message."
                 labelText="Area"
@@ -109,6 +106,7 @@ console.log(PRINTER.filter(item=> item.id === ITEM)[0]);
               />
             <Dropdown
               id="newSite"
+              direction="top"
               titleText="Site"
               labelText="Site"
               label="Select Site"
@@ -117,6 +115,10 @@ console.log(PRINTER.filter(item=> item.id === ITEM)[0]);
               onChange={(value)=>{setFieldValue( "newSite", value.selectedItem ) }}
               />
             </Stack>
+            <div style={{color: "#f4f4f4"}}>a</div>
+            <Button style={{backgroundColor: "#0e0e52"}} onClick={()=> dispatch(LOCAL_DATA_ACTIONS.SetShowModal(false))}>
+                 Cancel
+               </Button>
             <Button type="submit" disabled={isSubmitting}>
                  Submit
                </Button>

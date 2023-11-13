@@ -1,6 +1,7 @@
 import React from "react";
 import { Formik } from "formik";
 import { DATA_ACTIONS } from "../../../../store/DATA";
+import { LOCAL_DATA_ACTIONS } from "../../../../store/LOCAL_DATA";
 import { useDispatch } from "react-redux";
 import { Form, Stack, TextInput, Button, Dropdown} from "@carbon/react";
 
@@ -16,6 +17,7 @@ export default function PrinterForm() {
       initialValues={{id: '', Name: '', AssetNumber: '', SerialNumber: '', Brand: '', Model: '', Ip: '', Area: '', Site:''}}
       onSubmit={(values, {setSubmitting})=>{
         dispatch(DATA_ACTIONS.addPrinter(values))
+        dispatch(LOCAL_DATA_ACTIONS.setModal(false))
       }}
       >
          {({
@@ -27,15 +29,15 @@ export default function PrinterForm() {
              /* and other goodies */
            }) => (
           <Form onSubmit={handleSubmit}>
-            <Stack gap={7}>
-            <TextInput
+            <Stack gap={2}>
+            {/* <TextInput
                 id="id"
                 invalidText="Invalid error message."
                 labelText="User"
                 placeholder="Only enter one name and one surname"
                 onChange={handleChange}
                 value={values.id}
-              />
+              /> */}
             <TextInput
                 id="Name"
                 invalidText="Invalid error message."
@@ -69,7 +71,6 @@ export default function PrinterForm() {
               onChange={(value)=>{setFieldValue( "Brand", value.selectedItem ) }}
               />
                <TextInput
-                helperText="Enter the Model"
                 id="Model"
                 invalidText="Invalid error message."
                 labelText="Model"
@@ -78,7 +79,6 @@ export default function PrinterForm() {
                 onChange={handleChange}
               />
               <TextInput
-                helperText="Enter the IP of the printer"
                 id="Ip"
                 invalidText="Invalid error message."
                 labelText="IP"
@@ -87,7 +87,6 @@ export default function PrinterForm() {
                 onChange={handleChange}
               />
               <TextInput
-                helperText="Enter the Area of the printer"
                 id="Area"
                 invalidText="Invalid error message."
                 labelText="Area"
@@ -97,6 +96,7 @@ export default function PrinterForm() {
               />
             <Dropdown
               id="Site"
+              direction="top"
               titleText="Site"
               labelText="Site"
               label="Select Site"
@@ -105,6 +105,10 @@ export default function PrinterForm() {
               onChange={(value)=>{setFieldValue( "Site", value.selectedItem ) }}
               />
             </Stack>
+            <div style={{color: "#f4f4f4"}}>a</div>
+            <Button style={{backgroundColor: "#0e0e52"}} onClick={()=> dispatch(LOCAL_DATA_ACTIONS.setModal(false))}>
+                 Cancel
+               </Button>
             <Button type="submit" disabled={isSubmitting}>
                  Submit
                </Button>

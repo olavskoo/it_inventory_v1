@@ -1,6 +1,7 @@
 import React from "react";
 import { Formik } from "formik";
 import { DATA_ACTIONS } from "../../../../store/DATA";
+import { LOCAL_DATA_ACTIONS } from "../../../../store/LOCAL_DATA";
 import { useDispatch } from "react-redux";
 import { Form, Stack, TextInput, Button, Dropdown} from "@carbon/react";
 
@@ -17,6 +18,7 @@ export default function PhoneForm() {
       initialValues={{id: '', UserName: '', sso: '', Department: '', Brand: '', Model: '', Imei: '', Site: ''}}
       onSubmit={(values, {setSubmitting})=>{
         dispatch(DATA_ACTIONS.addPhone(values))
+        dispatch(LOCAL_DATA_ACTIONS.setModal(false))
       }}
       >
          {({
@@ -28,15 +30,15 @@ export default function PhoneForm() {
              /* and other goodies */
            }) => (
           <Form onSubmit={handleSubmit}>
-            <Stack gap={7}>
-            <TextInput
+            <Stack gap={3}>
+            {/* <TextInput
                 id="id"
                 invalidText="Invalid error message."
                 labelText="User"
                 placeholder="Only enter one name and one surname"
                 onChange={handleChange}
                 value={values.id}
-              />
+              /> */}
             <TextInput
                 id="UserName"
                 invalidText="Invalid error message."
@@ -70,7 +72,6 @@ export default function PhoneForm() {
               onChange={(value)=>{setFieldValue( "Brand", value.selectedItem ) }}
               />
                <TextInput
-                helperText="Enter the Model"
                 id="Model"
                 invalidText="Invalid error message."
                 labelText="Model"
@@ -79,7 +80,6 @@ export default function PhoneForm() {
                 onChange={handleChange}
               />
               <TextInput
-                helperText="Enter the IMEI"
                 id="Imei"
                 invalidText="Invalid error message."
                 labelText="IMEI"
@@ -89,6 +89,7 @@ export default function PhoneForm() {
               />
                <Dropdown
               id="Site"
+              direction="top"
               titleText="Site"
               labelText="Site"
               label="Select Site"
@@ -97,6 +98,10 @@ export default function PhoneForm() {
               onChange={(value)=>{setFieldValue( "Site", value.selectedItem ) }}
               />
             </Stack>
+            <div style={{color: "#f4f4f4"}}>a</div>
+            <Button style={{backgroundColor: "#0e0e52"}} onClick={()=> dispatch(LOCAL_DATA_ACTIONS.setModal(false))}>
+                 Cancel
+               </Button>
             <Button type="submit" disabled={isSubmitting}>
                  Submit
                </Button>

@@ -9,6 +9,7 @@ import EditScannerForm from "./scanners";
 import { useDispatch } from "react-redux";
 import EditPhoneForm from "./phones";
 import EditPrinterForm from "./printers";
+import * as Styled from "./styled"
 
 
 
@@ -41,15 +42,17 @@ export function EditModal(){
       dispatch(LOCAL_DATA_ACTIONS.SetShowModal(false))
       setOpen(showModal);
     }} launcherButtonRef={button}>
-<ModalHeader title={TableName === "Printer" ? "Printer Form" : TableName === "Phone" ?  "Phone Form" : "Computer Form"}/>
+<Styled.HeaderButton>
+<ModalHeader title={TableName === "Printer" ? "Edit Printer Form" : TableName === "Phones" ?  "Edit Phone Form" : TableName === "Scanner" ?  "Edit Scanner Form" : "Edit Computer Form"}/>
+</Styled.HeaderButton>
+<Styled.ModalButtons>
 <ModalBody>
       {TableName === "Laptop" && <EditLaptopForm />}
       {TableName === "Scanner" && <EditScannerForm />}
       {TableName === "Phones" && <EditPhoneForm />}
       {TableName === "Printer" && <EditPrinterForm />}
-
 </ModalBody>
-
+</Styled.ModalButtons>
 </ComposedModal>}
 </ModalStateManager>;
 }

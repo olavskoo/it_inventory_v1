@@ -12,6 +12,10 @@ export const SetShowModal = (state, action) => {
     state.SHOW_MODAL = action.payload
 }
 
+export const SetModal = (state, action) => {
+    state.MODAL = action.payload
+}
+
 export const setLogInModal = (state, action) =>{
     state.LOGIN_MODAL = action.payload
 }

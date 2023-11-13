@@ -3,6 +3,7 @@ import { Formik } from "formik";
 import { DATA_ACTIONS } from "../../../../store/DATA";
 import { useDispatch } from "react-redux";
 import { Form, Stack, TextInput, Button, Dropdown} from "@carbon/react";
+import { LOCAL_DATA_ACTIONS } from "../../../../store/LOCAL_DATA";
 
 export default function LaptopForm() {
 
@@ -17,6 +18,7 @@ export default function LaptopForm() {
       initialValues={{id: '', UserName: '', sso: '', Department: '', Brand: '', Model: '', SerialNumber: '', Site: ''}}
       onSubmit={(values, {setSubmitting})=>{
         dispatch(DATA_ACTIONS.addLaptop(values))
+        dispatch(LOCAL_DATA_ACTIONS.setModal(false))
       }}
       >
          {({
@@ -28,15 +30,15 @@ export default function LaptopForm() {
              /* and other goodies */
            }) => (
           <Form onSubmit={handleSubmit}>
-            <Stack gap={7}>
-            <TextInput
+            <Stack gap={3}>
+            {/* <TextInput
                 id="id"
                 invalidText="Invalid error message."
                 labelText="User"
                 placeholder="Only enter one name and one surname"
                 onChange={handleChange}
                 value={values.id}
-              />
+              /> */}
             <TextInput
                 id="UserName"
                 invalidText="Invalid error message."
@@ -70,7 +72,6 @@ export default function LaptopForm() {
               onChange={(value)=>{setFieldValue( "Brand", value.selectedItem ) }}
               />
                <TextInput
-                helperText="Enter the Model"
                 id="Model"
                 invalidText="Invalid error message."
                 labelText="Model"
@@ -79,7 +80,6 @@ export default function LaptopForm() {
                 onChange={handleChange}
               />
               <TextInput
-                helperText="Enter the service tag of the PC"
                 id="SerialNumber"
                 invalidText="Invalid error message."
                 labelText="Serial Number"
@@ -89,6 +89,7 @@ export default function LaptopForm() {
               />
                <Dropdown
               id="Site"
+              direction="top"
               titleText="Site"
               labelText="Site"
               label="Select Site"
@@ -97,6 +98,10 @@ export default function LaptopForm() {
               onChange={(value)=>{setFieldValue( "Site", value.selectedItem ) }}
               />
             </Stack>
+            <div style={{color: "#f4f4f4"}}>a</div>
+            <Button style={{backgroundColor: "#0e0e52"}} onClick={()=> dispatch(LOCAL_DATA_ACTIONS.setModal(false))}>
+                 Cancel
+               </Button>
             <Button type="submit" disabled={isSubmitting}>
                  Submit
                </Button>

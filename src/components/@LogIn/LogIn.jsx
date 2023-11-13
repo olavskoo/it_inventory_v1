@@ -2,7 +2,7 @@ import React from "react";
 import * as ReactDOM from 'react-dom';
 import { useState, useRef } from "react";
 import { Button, ModalHeader, ComposedModal, ModalBody, TextInput, Form, Stack, } from "@carbon/react";
-import { LOCAL_DATA, LOCAL_DATA_ACTIONS, LOGIN_MODAL_SELECTOR, LOGED_USER_SELECTOR } from "../../store/LOCAL_DATA";
+import { LOCAL_DATA_ACTIONS, LOGIN_MODAL_SELECTOR, LOGED_USER_SELECTOR } from "../../store/LOCAL_DATA";
 import { USERS_SELECTORS } from "../../store/DATA";
 import { Formik } from "formik";
 import { useDispatch, useSelector } from "react-redux";
@@ -47,7 +47,7 @@ export default function LogIn(){
         dispatch(LOCAL_DATA_ACTIONS.setLogedUser(values))
         dispatch(LOCAL_DATA_ACTIONS.setLogInModal(false))
        }else{
-        alert('Usuario incorrecto')
+        alert('Incorrect User')
        }  
        
       }}

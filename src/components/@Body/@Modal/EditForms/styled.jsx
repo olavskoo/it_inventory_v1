@@ -1,10 +1,5 @@
 import styled from "styled-components";
 
-export const MainContainer = styled.div`
-    display: flex;
-   
-`
-
 export const HeaderButton = styled.div`
     & .cds--modal-header__heading{
         color: #6400A0;
