@@ -9,6 +9,10 @@ export const initialState  = {
             password: "Olgz223042an"
         },
         {
+            sso: "223064820",
+            password: "Saenz24d"
+        },
+        {
             sso: "admin",
             password: "password"
         }
