@@ -34,7 +34,7 @@ export function Modal(){
     setOpen
   }) => <Button ref={button} onClick={() => setOpen(true)}>
             {TableName === "Laptop" && <><div style={{color: "#6400A0"}}>...........</div><i class="fa-solid fa-plus"></i><div style={{color: "#6400A0"}}>.</div><i class="fa-solid fa-laptop"></i></>}
-            {TableName === "Scanner" && <><div style={{color: "#6400A0"}}>...........</div><i class="fa-solid fa-plus"></i><div style={{color: "#6400A0"}}>..</div><i class="fa-solid fa-mobile-retro"></i></>}
+            {TableName === "Scanner" && <><div style={{color: "#6400A0"}}>...........</div><i class="fa-solid fa-plus"></i><div style={{color: "#6400A0"}}>..</div><i class="fa-solid fa-barcode"></i></>}
             {TableName === "Phones" && <><div style={{color: "#6400A0"}}>...........</div><i class="fa-solid fa-plus"></i><div style={{color: "#6400A0"}}>.</div><i class="fa-solid fa-mobile-screen-button"></i></>}
             {TableName === "Printer" && <><div style={{color: "#6400A0"}}>...........</div><i class="fa-solid fa-plus"></i><div style={{color: "#6400A0"}}>.</div><i class="fa-solid fa-print"></i></>}
 

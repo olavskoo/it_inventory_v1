@@ -1,11 +1,17 @@
 import React from "react";
 import * as Styled from "./styled";
-import GeLogoWhiteClean from "../img/GE/GeLogoWhiteClean.png";
-import BorderOpsColor from "../img/BorderOps/BorderOpsColor.png"
 import BorderOps from "../img/BorderOps/BorderOps.png"
+import LogIn from "../@LogIn/LogIn";
+import { UseSelector, useSelector } from "react-redux/es/hooks/useSelector";
+import { LOGED_USER_SELECTOR } from "../../store/LOCAL_DATA";
+import LogOut from "../@LogIn/LogOut";
 
 
 export default function Header() {
+
+const LogedUser = useSelector(LOGED_USER_SELECTOR)
+const user = ''
+
   return (
     <>
       <Styled.MainContainer>
@@ -16,9 +22,9 @@ export default function Header() {
             <h2>IT Inventory</h2>
           </Styled.TitleContainer>
           <Styled.UserContainer>
-            <button className="UserButton">
-               <i class="fa-regular fa-user" style={{fontSize: "2em"}}></i>
-            </button>
+          <h4 style={{color: "white"}}>{LogedUser.sso === "223017842" ? "Andres Olaves" : LogedUser.sso === "212687717" ?  "Isamar Gonzalez" : LogedUser.sso === "223064820" ?  "Gustavo Saenz" : "User"}</h4>
+          <LogOut/>
+          <LogIn/>
           </Styled.UserContainer>
       </Styled.MainContainer>
     </>

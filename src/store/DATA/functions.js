@@ -78,3 +78,6 @@ export const editPrinter = (state, action) => {
      state.PRINTERS[printerToEdit].Site = newSite;
    }
 }
+
+//////////////////////////////////////////////////////// USERS //////////////////////////////////////////////////////////////////////
+export const setUser = (state, action) => ({...state, USERS:action.payload})

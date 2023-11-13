@@ -37,5 +37,6 @@ export const LAPTOPS_SELECTOR = (state) => state.DATA.LAPTOPS
 export const PHONES_SELECTOR = (state) => state.DATA.PHONES
 export const PRINTERS_SELECTOR = (state) => state.DATA.PRINTERS
 export const SCANNERS_SELECTOR = (state) => state.DATA.SCANNERS
+export const USERS_SELECTORS = (state) => state.DATA.USERS
 
 export default DATA.reducer;
