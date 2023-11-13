@@ -54,10 +54,10 @@ export default function LogOut(){
            }) => (
           <Form onSubmit={handleSubmit}>
             <div style={{color: "#f4f4f4"}}>a</div>
-            <Button onClick={()=>setOpen(false)}>
+            <Button style={{backgroundColor: "#0e0e52"}} onClick={()=>setOpen(false)}>
                  Cancel
                </Button>
-            <Button type="submit" style={{backgroundColor: "red"}}>
+            <Button type="submit">
                  Log Out
                </Button>
           </Form>
