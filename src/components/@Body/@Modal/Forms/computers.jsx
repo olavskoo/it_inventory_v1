@@ -31,14 +31,14 @@ export default function LaptopForm() {
            }) => (
           <Form onSubmit={handleSubmit}>
             <Stack gap={3}>
-            {/* <TextInput
+            <TextInput
                 id="id"
                 invalidText="Invalid error message."
                 labelText="User"
                 placeholder="Only enter one name and one surname"
                 onChange={handleChange}
                 value={values.id}
-              /> */}
+              />
             <TextInput
                 id="UserName"
                 invalidText="Invalid error message."

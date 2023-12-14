@@ -5,6 +5,8 @@ import LaptopTable from "./Tables/Computers";
 import PrinterTable from "./Tables/Printers";
 import ScannerTable from "./Tables/Scanners";
 import PhoneTable from "./Tables/Phones";
+import { Politics } from "../../@Pdf/Politics";
+import { PDFViewer } from "@react-pdf/renderer";
 
 
 export default function ShowPanel() {
@@ -12,10 +14,12 @@ export default function ShowPanel() {
 
   return (
     <>
-      {TableName === "Laptop" && <LaptopTable />}
+      {TableName === "Laptop" && <LaptopTable/>}
       {TableName === "Phones" && <PhoneTable />}
       {TableName === "Printer" && <PrinterTable />}
       {TableName === "Scanner" && <ScannerTable />}
     </>
   );
 }
+
+//<PDFViewer><Politics/></PDFViewer>

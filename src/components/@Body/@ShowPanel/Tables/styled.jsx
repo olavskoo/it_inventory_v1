@@ -107,3 +107,25 @@ h4 {
     font-size: 1.7rem;
 }
 `
+export const Delete = styled.div`
+    & .cds--btn{
+        border-radius: 2em;
+        margin-right: .5em; 
+        background-color: red;
+    } 
+`
+export const HeaderButton = styled.div`
+    & .cds--modal-header__heading{
+        color: #6400A0;
+    }
+    & .cds--modal-close{
+        border: none;
+    }
+    &:hover .cds--modal-close{
+        cursor: auto;
+        background-color: #f4f4f4;
+    }
+    & .cds--modal-close__icon{
+        fill: none;
+    }
+`

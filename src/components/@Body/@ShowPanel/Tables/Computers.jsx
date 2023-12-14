@@ -1,4 +1,5 @@
 import React from "react";
+import { ReactDOM } from "react";
 import * as Styled from "./styled"
 import {
     DataTable,
@@ -19,14 +20,16 @@ import {
 import { useDispatch, useSelector } from "react-redux";  
 import { DATA_ACTIONS, LAPTOPS_SELECTOR } from "../../../../store/DATA";
 import { Modal } from "../../@Modal";
-import { LOCAL_DATA_ACTIONS} from "../../../../store/LOCAL_DATA";
+import { LOCAL_DATA_ACTIONS, ROW} from "../../../../store/LOCAL_DATA";
 import { EditModal } from "../../@Modal/EditForms";
-
+import { Politics } from "../../../@Pdf/Politics";
+import { PDFViewer } from '@react-pdf/renderer';
 
 export default function LaptopTable() {
     const LAPTOPS = useSelector(LAPTOPS_SELECTOR);
     const items = ["BOP1", "BOP2"];
     const dispatch = useDispatch()
+    const row = useSelector(ROW)
 
     const laptopHeaders = [
       {
@@ -116,12 +119,15 @@ export default function LaptopTable() {
       ))}
       <TableCell className="cds--table-column-menu">
         <OverflowMenu style={{backgroundColor: "transparent"}} size="sm" flipped>
-          <OverflowMenuItem itemText="Download"></OverflowMenuItem>
+         <OverflowMenuItem itemText="Download" onClick={()=>downloadPDF()}></OverflowMenuItem>
           <OverflowMenuItem itemText="Edit" onClick={()=>{
              dispatch(LOCAL_DATA_ACTIONS.SetItem(row.id))
             dispatch(LOCAL_DATA_ACTIONS.SetShowModal(true)
             )}}></OverflowMenuItem>
-          <OverflowMenuItem hasDivider itemText="Delete" isDelete onClick={()=>dispatch(DATA_ACTIONS.deleteLaptop(row.id))}></OverflowMenuItem>
+          <OverflowMenuItem hasDivider itemText="Delete" isDelete onClick={()=>{
+            dispatch(LOCAL_DATA_ACTIONS.setDeleteModal(true))
+            dispatch(LOCAL_DATA_ACTIONS.setRow(row.id))
+            }}></OverflowMenuItem>
         </OverflowMenu>
       </TableCell>
     </TableRow>
@@ -139,3 +145,8 @@ export function test(SelectedId){
 
   return SelectedId
 } 
+
+
+function downloadPDF(){
+  ReactDOM.render(<Politics />, `${process.env.HOME}/downloads/example.pdf`);
+}

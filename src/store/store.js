@@ -1,5 +1,4 @@
 import { configureStore } from "@reduxjs/toolkit";
-import {combineReducers} from "redux"
 import LOCAL_DATA from "./LOCAL_DATA";
 import DATA from "./DATA";
 

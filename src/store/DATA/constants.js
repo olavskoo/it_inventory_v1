@@ -9,13 +9,13 @@ export const initialState  = {
             password: "Olgz223042an"
         },
         {
+            sso: "212687717",
+            password: "Gonzalez23i"
+        },
+        {
             sso: "223064820",
             password: "Saenz24d"
         },
-        {
-            sso: "admin",
-            password: "password"
-        }
     ]
 }
 

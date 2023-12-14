@@ -5,6 +5,7 @@ import LogIn from "../@LogIn/LogIn";
 import { UseSelector, useSelector } from "react-redux/es/hooks/useSelector";
 import { LOGED_USER_SELECTOR } from "../../store/LOCAL_DATA";
 import LogOut from "../@LogIn/LogOut";
+import DeleteModal from "../@Body/@ShowPanel/Tables/DeleteModal";
 
 
 export default function Header() {
@@ -25,6 +26,7 @@ const user = ''
           <h4 style={{color: "white"}}>{LogedUser.sso === "223017842" ? "Andres Olaves" : LogedUser.sso === "212687717" ?  "Isamar Gonzalez" : LogedUser.sso === "223064820" ?  "Gustavo Saenz" : "User"}</h4>
           <LogOut/>
           <LogIn/>
+          <DeleteModal/>
           </Styled.UserContainer>
       </Styled.MainContainer>
     </>
